@@ -1,0 +1,56 @@
+=== PDPA Consent for Thailand ===
+Contributors: iamapinan
+Donate link: https://paypal.me/apinu
+Tags: pdpa, gdpr, cookie, cookies, notice, notification, notify, cookie, cookie law, privacy, policy, consent, law
+Requires at least: 3.3
+Requires PHP: 5.4.6
+Tested up to: 5.4.1
+Stable tag: 1.0.0
+License: GNU 3.0
+License URI: https://opensource.org/licenses/lgpl-3.0.html
+
+PDPA Consent allows you to notify to the user to accept privacy terms. Comply with Thailand PDPA law.
+
+== Description ==
+
+This WordPress plugin help you to generate pdpa consent terms page. You can edit the term page and publish on your website.
+
+== PDPA Consent ==
+
+Personal Data Protection Act B.E. 2562 (2019) or PDPA is the law to protect user privacy informations of Thailand.
+It was adopted into law on May 28, 2019, after being published in the Royal Thai Government
+
+= Features include: =
+
+* Customizable message
+
+= Usage: =
+
+If you'd like to code a functionality depending on the cookie notice value use the function below:
+
+`if ( function_exists('cn_cookies_accepted') && cn_cookies_accepted() ) {
+	// Your third-party non functional code here
+}`
+
+= Get involved =
+
+Feel free to contribute to the source code on the [dFactory GitHub Repository](https://github.com/iamapinan/pdpa-consent).
+
+== Installation ==
+
+1. Install Cookie Notice either via the WordPress.org plugin directory, or by uploading the files to your server
+2. Activate the plugin through the 'Plugins' menu in WordPress
+3. Go to the Cookie Notice settings and set your options.
+
+== Frequently Asked Questions ==
+
+No questions yet.
+
+== Screenshots ==
+
+1. screenshot-1.png
+
+== Changelog ==
+
+= 1.0.0 =
+* First version
