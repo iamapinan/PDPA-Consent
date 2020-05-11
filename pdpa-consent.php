@@ -47,6 +47,7 @@ if(!class_exists('PDPA_Consent')){
         public function initial() {
             add_filter( 'body_class', array( $this, 'change_body_class' ) );
 
+            add_action( 'wp_body_open', array($this, 'add_consent') );
             add_action( 'wp_enqueue_scripts', array( $this, 'pdpa_enqueue_scripts' ) );
         }
 
@@ -56,11 +57,11 @@ if(!class_exists('PDPA_Consent')){
         }
 
         public function pdpa_cookies_set() {
-            return apply_filters( 'cn_is_cookie_set', isset( $_COOKIE['pdpa_accepted'] ) );
+            return apply_filters( 'pdpa_is_cookie_set', isset( $_COOKIE['pdpa_accepted'] ) );
         }
 
         public static function pdpa_cookies_accepted() {
-            return apply_filters( 'cn_is_cookie_accepted', isset( $_COOKIE['pdpa_accepted'] ) && $_COOKIE['pdpa_accepted'] === 'true' );
+            return apply_filters( 'pdpa_is_cookie_accepted', isset( $_COOKIE['pdpa_accepted'] ) && $_COOKIE['pdpa_accepted'] === 'true' );
         }
 
         public function change_body_class( $classes ) {
@@ -80,10 +81,24 @@ if(!class_exists('PDPA_Consent')){
             return $classes;
         }
 
-        public function create_notice() {
-
+        public function add_consent() {
+            $this->options = get_option( '_option_name' );
+            $page_id = get_option('pdpa-page-id');
+            ?>
+            <style><?php echo $this->options['custom_css'];?></style>
+            <div class="consent-wrap place-<?php echo $this->options['popup_type'];?>">
+                <div class="consent-text">
+                    <?php _e($this->options['popup_message']);?>
+                    <a href="/?p=<?php echo $page_id;?>"><?php _e('Read term and privacy policy', 'pdpa-consent');?></a>
+                </div>
+                <div>
+                    <button class="pdpa-consent-allow-button" id="PDPAAllow"><?php _e('Allow', 'pdpa-consent');?></button>
+                    <button class='pdpa-consent-not-allow-button' id="PDPANotAllow"><?php _e('Not Allow', 'pdpa-consent');?></button>
+                </div>
+            </div>
+            <?php
+            
         }
-
 
     }
     new PDPA_Consent;

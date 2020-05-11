@@ -1,7 +1,7 @@
 === PDPA Consent for Thailand ===
 Contributors: iamapinan
 Donate link: https://paypal.me/apinu
-Tags: pdpa, gdpr, cookie, cookies, notice, notification, notify, cookie, cookie law, privacy, policy, consent, law
+Tags: pdpa, gdpr, cookie, cookies, notice, notification, notify, cookie, cookie law, privacy, policy, consent, law, Thailand, compliance, consent
 Requires at least: 3.3
 Requires PHP: 5.4.6
 Tested up to: 5.4.1
@@ -13,7 +13,8 @@ PDPA Consent allows you to notify to the user to accept privacy terms. Comply wi
 
 == Description ==
 
-This WordPress plugin help you to generate pdpa consent terms page and consent notification popup. You can edit the term page and publish on your website.
+This WordPress plugin help you to generate Thailand PDPA consent terms page and consent notification popup. 
+You can edit the term page and publish on your website with elegant and powerful solution.
 
 == PDPA Consent ==
 
