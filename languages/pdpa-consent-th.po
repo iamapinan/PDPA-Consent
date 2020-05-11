@@ -1,14 +1,13 @@
-#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PDPA Consent\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-05-11 19:45+0000\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: \n"
-"Language: \n"
-"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+"PO-Revision-Date: 2020-05-11 19:48+0000\n"
+"Last-Translator: \n"
+"Language-Team: ไทย\n"
+"Language: th\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -19,22 +18,24 @@ msgstr ""
 #: admin.php:23
 msgctxt "PDPA"
 msgid "PDPA Consent"
-msgstr ""
+msgstr "PDPA Consent"
 
 #. Description of the plugin
 msgid ""
 "PDPA Consent allows you to notify to the user to accept privacy terms. "
 "Comply with Thailand PDPA law."
 msgstr ""
+"กำหนดเงื่อนไขและนโยบาลเกี่ยวกับข้อมูลส่วนบุคคล "
+"ตามกฎหมายคุ้มคลองข้อมูลส่วนบุคคล PDAP สำหรับประเทศไทย"
 
 #. URI of the plugin
 msgid "http://www.ioblog.me/pdpa-consent-plugin"
-msgstr ""
+msgstr "http://www.ioblog.me/pdpa-consent-plugin"
 
 #. Author of the plugin
 msgid "Apinan Woratrakun, Aeknarin Sirisub"
-msgstr ""
+msgstr "Apinan Woratrakun, Aeknarin Sirisub"
 
 #. Author URI of the plugin
 msgid "https://www.ioblog.me"
-msgstr ""
+msgstr "https://www.ioblog.me"

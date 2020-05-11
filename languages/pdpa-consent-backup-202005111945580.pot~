@@ -17,7 +17,6 @@ msgstr ""
 
 #. Name of the plugin
 #: admin.php:23
-msgctxt "PDPA"
 msgid "PDPA Consent"
 msgstr ""
 
