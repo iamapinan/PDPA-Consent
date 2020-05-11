@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PDPA Consent\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-05-11 19:45+0000\n"
-"PO-Revision-Date: 2020-05-11 19:48+0000\n"
+"POT-Creation-Date: 2020-05-11 21:46+0000\n"
+"PO-Revision-Date: 2020-05-11 21:53+0000\n"
 "Last-Translator: \n"
 "Language-Team: ไทย\n"
 "Language: th\n"
@@ -15,10 +15,77 @@ msgstr ""
 "X-Loco-Version: 2.3.3; wp-5.4.1"
 
 #. Name of the plugin
-#: admin.php:23
-msgctxt "PDPA"
+#: admin.php:24
 msgid "PDPA Consent"
 msgstr "PDPA Consent"
+
+#. id
+#: admin.php:56
+msgid "PDPA Consent setup"
+msgstr "ตั้งค่า PDPA Consent"
+
+#. id
+#: admin.php:67
+msgid "Enable consent noti"
+msgstr "เปิดใช้งาน Popup แจ้งเตือน"
+
+#. id
+#: admin.php:74
+msgid "Notification popup type"
+msgstr "รูปแบบการแจ้งเตือน"
+
+#. id
+#: admin.php:81
+msgid "Popup message"
+msgstr "ข้อความแจ้ง"
+
+#. id
+#: admin.php:88
+msgid "Website name (*)"
+msgstr "ชื่อเว็บไซต์ (*)"
+
+#. id
+#: admin.php:95
+msgid "Web description"
+msgstr "คำอธิบายเกี่ยวกับบริการ"
+
+#. id
+#: admin.php:102
+msgid "List of user data (*)<br>(one data set per line)"
+msgstr "รายการข้อมูลที่ขอสิทธิ (*)(1 แถวต่อ 1 ข้อมูลที่ขอ)"
+
+#. id
+#: admin.php:109
+msgid "Address (*)"
+msgstr "ที่อยู่ (*)"
+
+#. id
+#: admin.php:116
+msgid "Contact"
+msgstr "การติดต่อ"
+
+#. id
+#: admin.php:123
+msgid "Email (*)"
+msgstr "อีเมล์ (*)"
+
+#: admin.php:149
+msgid ""
+"Your privacy is important to us. We need your data just for the important "
+"process of services. Please allow if you accept the term of privacy included "
+"PDPA compiled."
+msgstr ""
+"ความเป็นส่วนตัวของคุณคือสิ่งสำคัญสำหรับเรา "
+"เราต้องการข้อมูลของคุณเพียงเพื่อการประมวลผลที่จำเป็นต่อการให้บริการ "
+"โปรดยินยอม ถ้าคุณยอมรับเงื่อนไขการข้อตกลงในการใช้งานที่รวมถึง PDPA ของไทย"
+
+#: admin.php:157
+msgid "Your website name or Company name"
+msgstr "ชื่อเว็บไซต์หรือชื่อบริการของคุณ"
+
+#: admin.php:187
+msgid "Such as John Doe (081-111-1111)"
+msgstr "เช่น มะลิ (081-111-1111)"
 
 #. Description of the plugin
 msgid ""
@@ -29,8 +96,8 @@ msgstr ""
 "ตามกฎหมายคุ้มคลองข้อมูลส่วนบุคคล PDAP สำหรับประเทศไทย"
 
 #. URI of the plugin
-msgid "http://www.ioblog.me/pdpa-consent-plugin"
-msgstr "http://www.ioblog.me/pdpa-consent-plugin"
+msgid "https://github.com/iamapinan/PDPA-Consent"
+msgstr "https://github.com/iamapinan/PDPA-Consent"
 
 #. Author of the plugin
 msgid "Apinan Woratrakun, Aeknarin Sirisub"

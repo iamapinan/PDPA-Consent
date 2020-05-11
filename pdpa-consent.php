@@ -8,7 +8,7 @@ Description: PDPA Consent allows you to notify to the user to accept privacy ter
 Version: 1.0.0
 Author: Apinan Woratrakun, Aeknarin Sirisub
 Author URI: https://www.ioblog.me
-Plugin URI: http://www.ioblog.me/pdpa-consent-plugin
+Plugin URI: https://github.com/iamapinan/PDPA-Consent
 License: GNU License
 License URI: https://opensource.org/licenses/lgpl-3.0.html
 Text Domain: pdpa-consent

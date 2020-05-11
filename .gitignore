@@ -1,1 +1,4 @@
 *.yml
+*.~
+languages/*.pot~
+languages/*.po~
