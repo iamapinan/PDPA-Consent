@@ -3,11 +3,11 @@ msgstr ""
 "Project-Id-Version: PDPA Consent\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-05-11 21:46+0000\n"
-"PO-Revision-Date: 2020-05-11 21:47+0000\n"
+"PO-Revision-Date: 2020-05-11 21:53+0000\n"
 "Last-Translator: \n"
-"Language-Team: English (United States)\n"
-"Language: en_US\n"
-"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"Language-Team: ไทย\n"
+"Language: th\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -22,52 +22,52 @@ msgstr "PDPA Consent"
 #. id
 #: admin.php:56
 msgid "PDPA Consent setup"
-msgstr "PDPA Consent setup"
+msgstr "ตั้งค่า PDPA Consent"
 
 #. id
 #: admin.php:67
 msgid "Enable consent noti"
-msgstr "Enable consent noti"
+msgstr "เปิดใช้งาน Popup แจ้งเตือน"
 
 #. id
 #: admin.php:74
 msgid "Notification popup type"
-msgstr "Notification popup type"
+msgstr "รูปแบบการแจ้งเตือน"
 
 #. id
 #: admin.php:81
 msgid "Popup message"
-msgstr "Popup message"
+msgstr "ข้อความแจ้ง"
 
 #. id
 #: admin.php:88
 msgid "Website name (*)"
-msgstr "Website name (*)"
+msgstr "ชื่อเว็บไซต์ (*)"
 
 #. id
 #: admin.php:95
 msgid "Web description"
-msgstr "Web description"
+msgstr "คำอธิบายเกี่ยวกับบริการ"
 
 #. id
 #: admin.php:102
 msgid "List of user data (*)<br>(one data set per line)"
-msgstr "List of user data (*)<br>(one data set per line)"
+msgstr "รายการข้อมูลที่ขอสิทธิ (*)(1 แถวต่อ 1 ข้อมูลที่ขอ)"
 
 #. id
 #: admin.php:109
 msgid "Address (*)"
-msgstr "Address (*)"
+msgstr "ที่อยู่ (*)"
 
 #. id
 #: admin.php:116
 msgid "Contact"
-msgstr "Contact"
+msgstr "การติดต่อ"
 
 #. id
 #: admin.php:123
 msgid "Email (*)"
-msgstr "Email (*)"
+msgstr "อีเมล์ (*)"
 
 #: admin.php:149
 msgid ""
@@ -75,25 +75,25 @@ msgid ""
 "process of services. Please allow if you accept the term of privacy included "
 "PDPA compiled."
 msgstr ""
-"Your privacy is important to us. We need your data just for the important "
-"process of services. Please allow if you accept the term of privacy included "
-"PDPA compiled."
+"ความเป็นส่วนตัวของคุณคือสิ่งสำคัญสำหรับเรา "
+"เราต้องการข้อมูลของคุณเพียงเพื่อการประมวลผลที่จำเป็นต่อการให้บริการ "
+"โปรดยินยอม ถ้าคุณยอมรับเงื่อนไขการข้อตกลงในการใช้งานที่รวมถึง PDPA ของไทย"
 
 #: admin.php:157
 msgid "Your website name or Company name"
-msgstr "Your website name or Company name"
+msgstr "ชื่อเว็บไซต์หรือชื่อบริการของคุณ"
 
 #: admin.php:187
 msgid "Such as John Doe (081-111-1111)"
-msgstr "Such as John Doe (081-111-1111)"
+msgstr "เช่น มะลิ (081-111-1111)"
 
 #. Description of the plugin
 msgid ""
 "PDPA Consent allows you to notify to the user to accept privacy terms. "
 "Comply with Thailand PDPA law."
 msgstr ""
-"PDPA Consent allows you to notify to the user to accept privacy terms. "
-"Comply with Thailand PDPA law."
+"กำหนดเงื่อนไขและนโยบาลเกี่ยวกับข้อมูลส่วนบุคคล "
+"ตามกฎหมายคุ้มคลองข้อมูลส่วนบุคคล PDAP สำหรับประเทศไทย"
 
 #. URI of the plugin
 msgid "https://github.com/iamapinan/PDPA-Consent"

@@ -8,7 +8,7 @@ Description: PDPA Consent allows you to notify to the user to accept privacy ter
 Version: 1.0.0
 Author: Apinan Woratrakun, Aeknarin Sirisub
 Author URI: https://www.ioblog.me
-Plugin URI: http://www.ioblog.me/pdpa-consent-plugin
+Plugin URI: https://github.com/iamapinan/PDPA-Consent
 License: GNU License
 License URI: https://opensource.org/licenses/lgpl-3.0.html
 Text Domain: pdpa-consent
@@ -21,8 +21,9 @@ if ( !function_exists( 'add_action' ) ) {
 	exit;
 }
 
-define( '_PATH', plugin_dir_path( __FILE__ ) );
-
+define( 'PDPA_PATH', plugin_dir_path( __FILE__ ) );
+// Include Admin options
+include_once( PDPA_PATH . 'admin.php' );
 // Check get_plugin_data exists.
 if( !function_exists('get_plugin_data') ){
     require_once( ABSPATH . 'wp-admin/includes/plugin.php' );
@@ -34,11 +35,13 @@ if(!class_exists('PDPA_Consent')){
         private $show_popup = true;
         private $consent_popup_title = '';
         private $consent_popup_button_text = '';
-        private $plugin_info;
+        private $plugin_info = array();
+        private $admin;
 
         public function __construct () {
-            $this->plugin_info = get_plugin_data( _PATH . 'pdpa-consent.php' );
+            $this->plugin_info = get_plugin_data( PDPA_PATH . 'pdpa-consent.php' );
             $this->initial();
+            new AdminOption;
         }
 
         public function initial() {
@@ -78,14 +81,6 @@ if(!class_exists('PDPA_Consent')){
         }
 
         public function create_notice() {
-
-        }
-
-        private function pdpa_admin_menu() {
-
-        }
-
-        private function pdpa_admin_option() {
 
         }
 

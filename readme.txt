@@ -13,7 +13,7 @@ PDPA Consent allows you to notify to the user to accept privacy terms. Comply wi
 
 == Description ==
 
-This WordPress plugin help you to generate pdpa consent terms page. You can edit the term page and publish on your website.
+This WordPress plugin help you to generate pdpa consent terms page and consent notification popup. You can edit the term page and publish on your website.
 
 == PDPA Consent ==
 
@@ -23,18 +23,14 @@ It was adopted into law on May 28, 2019, after being published in the Royal Thai
 = Features include: =
 
 * Customizable message
-
-= Usage: =
-
-If you'd like to code a functionality depending on the cookie notice value use the function below:
-
-`if ( function_exists('cn_cookies_accepted') && cn_cookies_accepted() ) {
-	// Your third-party non functional code here
-}`
+* Identity setup
+* User data list
+* Popup placement
+* Consent page generate
 
 = Get involved =
 
-Feel free to contribute to the source code on the [dFactory GitHub Repository](https://github.com/iamapinan/pdpa-consent).
+Feel free to contribute to the source code on the [PDPA Consent](https://github.com/iamapinan/PDPA-Consent).
 
 == Installation ==
 
@@ -53,4 +49,8 @@ No questions yet.
 == Changelog ==
 
 = 1.0.0 =
-* First version
+* Customizable message
+* Identity setup
+* User data list
+* Popup placement
+* Consent page generate
