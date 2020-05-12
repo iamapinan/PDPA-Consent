@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PDPA Consent\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-05-11 21:46+0000\n"
+"POT-Creation-Date: 2020-05-12 11:53+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: \n"
@@ -15,73 +15,119 @@ msgstr ""
 "X-Generator: Loco https://localise.biz/\n"
 "X-Loco-Version: 2.3.3; wp-5.4.1"
 
+#: pdpa-consent.php:191
+msgid "Read term and privacy policy"
+msgstr ""
+
+#: pdpa-consent.php:194
+msgid "Allow"
+msgstr ""
+
+#: pdpa-consent.php:195
+msgid "Not Allow"
+msgstr ""
+
+#: pdpa-consent.php:204
+msgid "PDPA Allow"
+msgstr ""
+
+#: admin.php:23
+msgid "pdpa-term"
+msgstr ""
+
+#: admin.php:49
+msgid "Thailand’s Personal Data Protection Act (PDPA)"
+msgstr ""
+
 #. Name of the plugin
-#: admin.php:24
+#: admin.php:61
 msgid "PDPA Consent"
 msgstr ""
 
 #. id
-#: admin.php:56
+#: admin.php:96
 msgid "PDPA Consent setup"
 msgstr ""
 
 #. id
-#: admin.php:67
+#: admin.php:108
+msgid "Privacy page"
+msgstr ""
+
+#. id
+#: admin.php:117
 msgid "Enable consent noti"
 msgstr ""
 
 #. id
-#: admin.php:74
+#: admin.php:124
 msgid "Notification popup type"
 msgstr ""
 
 #. id
-#: admin.php:81
+#: admin.php:131
 msgid "Popup message"
 msgstr ""
 
 #. id
-#: admin.php:88
+#: admin.php:138
 msgid "Website name (*)"
 msgstr ""
 
 #. id
-#: admin.php:95
+#: admin.php:145
 msgid "Web description"
 msgstr ""
 
 #. id
-#: admin.php:102
+#: admin.php:152
 msgid "List of user data (*)<br>(one data set per line)"
 msgstr ""
 
 #. id
-#: admin.php:109
+#: admin.php:159
 msgid "Address (*)"
 msgstr ""
 
 #. id
-#: admin.php:116
+#: admin.php:166
 msgid "Contact"
 msgstr ""
 
 #. id
-#: admin.php:123
+#: admin.php:173
 msgid "Email (*)"
 msgstr ""
 
-#: admin.php:149
+#. id
+#: admin.php:180
+msgid "Custom CSS"
+msgstr ""
+
+#: admin.php:203
+msgid "Center popup"
+msgstr ""
+
+#: admin.php:204
+msgid "Bottom bar"
+msgstr ""
+
+#: admin.php:205
+msgid "Top bar"
+msgstr ""
+
+#: admin.php:213
 msgid ""
 "Your privacy is important to us. We need your data just for the important "
 "process of services. Please allow if you accept the term of privacy included "
 "PDPA compiled."
 msgstr ""
 
-#: admin.php:157
+#: admin.php:221
 msgid "Your website name or Company name"
 msgstr ""
 
-#: admin.php:187
+#: admin.php:251
 msgid "Such as John Doe (081-111-1111)"
 msgstr ""
 

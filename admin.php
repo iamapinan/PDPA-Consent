@@ -14,17 +14,19 @@ Class AdminOption {
     private $options;
     private $locale;
     private $page_id;
+    private $page_name;
 
     public function __construct() {
         $this->plugin_info = get_plugin_data( PDPA_PATH . 'pdpa-consent.php' );
         $this->locale = get_locale();
         $this->page_id = get_option('pdpa-page-id') ? get_option('pdpa-page-id') : 0;
+        $this->page_name = __('pdpa-term', 'pdpa-consent');
         add_action( 'admin_menu', array($this, 'pdpa_admin_menu') );
         add_action( 'admin_init', array($this, 'admin_option_setup') );
     }
 
     private function serialize_html($html, $settings = [ 'website_name' => '', 'site_description' => '', 'list_data' => '', 'site_address' => '', 'site_contact' => '', 'site_email' => '' ]) {
-        $settings['list_data'] = str_replace("\n", "</li><li>", esc_attr($settings['list_data']) )."</li>";
+        $settings['list_data'] = str_replace("\n", "</li><li>", esc_attr($settings['list_data']) );
         $html = str_replace('[service]', esc_attr($settings['website_name']), $html);
         $html = str_replace('[description]', esc_attr($settings['site_description']), $html);
         $html = str_replace('[list_data]', $settings['list_data'], $html);
@@ -44,7 +46,8 @@ Class AdminOption {
 
         $page_details = array(
             'ID'            => $this->page_id,
-            'post_title'    => __('Term and Privacy Policy', 'pdpa-consent'),
+            'post_title'    => __('Thailand’s Personal Data Protection Act (PDPA)', 'pdpa-consent'),
+            'post_name'     => $this->page_name,
             'post_content'  => $content,
             'post_status'   => 'publish',
             'post_author'   => 1,
@@ -185,7 +188,7 @@ Class AdminOption {
         printf(
             '<a href="/?p=%s">%s</a>' ,
             $this->page_id,
-            get_site_url().'/?p='.$this->page_id
+            get_site_url().'/'.$this->page_name
         );
     }
     function is_enable_callback() {
@@ -197,9 +200,9 @@ Class AdminOption {
     function popup_type_callback() {
         ?>
             <select name="_option_name[popup_type]">
-                <option value="center" <?php echo $this->options['popup_type'] == 'center' ? 'selected' : '';?>>Center popup</option>
-                <option value="bottom" <?php echo $this->options['popup_type'] == 'bottom' ? 'selected' : '';?>>Bottom bar</option>
-                <option value="top" <?php echo $this->options['popup_type'] == 'top' ? 'selected' : '';?>>Top bar</option>
+                <option value="center" <?php echo $this->options['popup_type'] == 'center' ? 'selected' : '';?>><?php _e('Center popup', 'pdpa-consent');?></option>
+                <option value="bottom" <?php echo $this->options['popup_type'] == 'bottom' ? 'selected' : '';?>><?php _e('Bottom bar', 'pdpa-consent');?></option>
+                <option value="top" <?php echo $this->options['popup_type'] == 'top' ? 'selected' : '';?>><?php _e('Top bar', 'pdpa-consent');?></option>
             </select>
         <?php
     }
