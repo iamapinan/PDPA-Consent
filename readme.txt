@@ -5,7 +5,7 @@ Tags: pdpa, gdpr, cookie, cookies, notice, notification, notify, cookie, cookie 
 Requires at least: 3.3
 Requires PHP: 5.4.6
 Tested up to: 5.4.1
-Stable tag: 1.0.0
+Stable tag: 1.0.1
 License: GNU 3.0
 License URI: https://opensource.org/licenses/lgpl-3.0.html
 
@@ -57,6 +57,8 @@ No questions yet.
 5. screenshot-5.png
 
 == Changelog ==
+= 1.0.1 =
+* Fix mini issue.
 
 = 1.0.0 =
 * Customizable message
