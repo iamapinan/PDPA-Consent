@@ -37,9 +37,11 @@ if(!class_exists('PDPA_Consent')){
         private $consent_popup_button_text = '';
         private $plugin_info = array();
         private $admin;
+        private $locale;
 
         public function __construct () {
             $this->plugin_info = get_plugin_data( PDPA_PATH . 'pdpa-consent.php' );
+            $this->locale = get_locale();
             $this->initial();
             new AdminOption;
         }
@@ -49,6 +51,13 @@ if(!class_exists('PDPA_Consent')){
 
             add_action( 'wp_body_open', array($this, 'add_consent') );
             add_action( 'wp_enqueue_scripts', array( $this, 'pdpa_enqueue_scripts' ) );
+        }
+
+        function setup_admin_notice(){
+            global $pagenow;
+            echo '<div class="notice notice-warning is-dismissible">
+                <p>Please setup PDPA Consent setting in <a href="/wp-admin/admin.php?page=pdpa-consent">plugin page.</a></p>
+            </div>';
         }
 
         public function pdpa_enqueue_scripts() {
@@ -84,11 +93,12 @@ if(!class_exists('PDPA_Consent')){
         public function add_consent() {
             $this->options = get_option( '_option_name' );
             $page_id = get_option('pdpa-page-id');
+            if($this->options['is_enable']):
             ?>
             <style><?php echo $this->options['custom_css'];?></style>
-            <div class="consent-wrap place-<?php echo $this->options['popup_type'];?>">
+            <div class="consent-wrap place-<?php echo $this->options['popup_type'];?>" id="pdpa_screen">
                 <div class="consent-text">
-                    <?php _e($this->options['popup_message']);?>
+                    <?php esc_attr_e($this->options['popup_message']);?>
                     <a href="/?p=<?php echo $page_id;?>"><?php _e('Read term and privacy policy', 'pdpa-consent');?></a>
                 </div>
                 <div>
@@ -97,9 +107,13 @@ if(!class_exists('PDPA_Consent')){
                 </div>
             </div>
             <?php
-            
+            endif;
         }
 
     }
+
+    /**
+     * Initialize PDPA Consent.
+     */
     new PDPA_Consent;
 }

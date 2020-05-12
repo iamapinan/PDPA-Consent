@@ -28,6 +28,7 @@ It was adopted into law on May 28, 2019, after being published in the Royal Thai
 * User data list
 * Popup placement
 * Consent page generate
+* Custom CSS
 
 = Get involved =
 
@@ -55,3 +56,4 @@ No questions yet.
 * User data list
 * Popup placement
 * Consent page generate
+* Custom CSS

@@ -3,6 +3,9 @@
     background-color: #ffffff;
     width: 100%;
     text-align: center;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
 }
 .place-top {
     position: fixed;
@@ -27,12 +30,9 @@
     bottom: 0;
     margin: auto;
     width: 100vh;
-    max-height: 20vh;
-    box-shadow: 3px 3px 5px rgba(3,3,3,0.15);
+    max-height: 25vh;
+    box-shadow: 3px 3px 50px rgba(3,3,3,0.25);
     border-radius: 6px;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
 }
 .consent-text {
     margin-bottom: 10px;

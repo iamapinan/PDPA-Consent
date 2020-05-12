@@ -13,22 +13,24 @@ Class AdminOption {
     private $capability = 'manage_options';
     private $options;
     private $locale;
+    private $page_id;
 
     public function __construct() {
         $this->plugin_info = get_plugin_data( PDPA_PATH . 'pdpa-consent.php' );
         $this->locale = get_locale();
+        $this->page_id = get_option('pdpa-page-id') ? get_option('pdpa-page-id') : 0;
         add_action( 'admin_menu', array($this, 'pdpa_admin_menu') );
         add_action( 'admin_init', array($this, 'admin_option_setup') );
     }
 
     private function serialize_html($html, $settings = [ 'website_name' => '', 'site_description' => '', 'list_data' => '', 'site_address' => '', 'site_contact' => '', 'site_email' => '' ]) {
-        $settings['list_data'] = str_replace("\n", "</li><li>", $settings['list_data'])."</li>";
-        $html = str_replace('[service]', $settings['website_name'], $html);
-        $html = str_replace('[description]', $settings['site_description'], $html);
+        $settings['list_data'] = str_replace("\n", "</li><li>", esc_attr($settings['list_data']) )."</li>";
+        $html = str_replace('[service]', esc_attr($settings['website_name']), $html);
+        $html = str_replace('[description]', esc_attr($settings['site_description']), $html);
         $html = str_replace('[list_data]', $settings['list_data'], $html);
-        $html = str_replace('[address]', $settings['site_address'], $html);
-        $html = str_replace('[contact]', $settings['site_contact'], $html);
-        $html = str_replace('[email]', $settings['site_email'], $html);
+        $html = str_replace('[address]', esc_attr($settings['site_address']), $html);
+        $html = str_replace('[contact]', esc_attr($settings['site_contact']), $html);
+        $html = str_replace('[email]', esc_attr($settings['site_email']), $html);
         return $html;
     }
 
@@ -41,7 +43,7 @@ Class AdminOption {
         }
 
         $page_details = array(
-            'ID'            => get_option('pdpa-page-id') ? get_option('pdpa-page-id') : 0,
+            'ID'            => $this->page_id,
             'post_title'    => __('Term and Privacy Policy', 'pdpa-consent'),
             'post_content'  => $content,
             'post_status'   => 'publish',
@@ -96,6 +98,16 @@ Class AdminOption {
 
     public function _section_fields() {
         $this->options = get_option( '_option_name' );
+
+        if($this->page_id !== 0) {
+            add_settings_field(
+                '_url_', // id
+                __( 'Privacy page','pdpa-consent' ), // title
+                array( $this, 'url_callback' ), // callback
+                'settings', // page
+                '_pdpa_setting_section' // section
+            );
+        }
 
         add_settings_field(
             'is_enable', // id
@@ -169,6 +181,13 @@ Class AdminOption {
         );
     }
 
+    function url_callback() {
+        printf(
+            '<a href="/?p=%s">%s</a>' ,
+            $this->page_id,
+            get_site_url().'/?p='.$this->page_id
+        );
+    }
     function is_enable_callback() {
         printf(
             '<input type="checkbox" name="_option_name[is_enable]" id="is_enable" value="1" %s>' ,
@@ -195,7 +214,7 @@ Class AdminOption {
     function website_name_callback() {
         printf(
             '<input class="regular-text" type="text" name="_option_name[website_name]" id="website_name" value="%s" placeholder="%s" required>' ,
-            isset( $this->options['website_name'] ) ? esc_attr( $this->options['website_name']) : get_site_url(),
+            isset( $this->options['website_name'] ) ? esc_attr( $this->options['website_name']) : '',
             __('Your website name or Company name', 'pdpa-consent')
         );
     }
