@@ -36,7 +36,7 @@ msgstr "pdpa-term"
 
 #: admin.php:49
 msgid "Thailand’s Personal Data Protection Act (PDPA)"
-msgstr "เงื่อนไขและนโยบาลข้อมูลส่วนบุคลล (PDPA)"
+msgstr "เงื่อนไขและนโยบายข้อมูลส่วนบุคลล (PDPA)"
 
 #. Name of the plugin
 #: admin.php:61
