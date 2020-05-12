@@ -14,7 +14,7 @@ PDPA Consent allows you to notify to the user to accept privacy terms. Comply wi
 == Description ==
 
 This WordPress plugin help you to generate Thailand PDPA consent terms page and consent notification popup. 
-You can edit the term page and publish on your website with elegant and powerful solution.
+You can edit the term page and publish on your website with elegant and powerful solution. !!! No jquery need at all.
 
 == PDPA Consent ==
 
@@ -29,6 +29,10 @@ It was adopted into law on May 28, 2019, after being published in the Royal Thai
 * Popup placement
 * Consent page generate
 * Custom CSS
+* Support WP Super Cache (idea from Cookie Notice plugin)
+* Save user action to database
+* Display user PDPA Status on user list
+* Multi language support (Thai, English) more translate is accept
 
 = Get involved =
 
@@ -57,3 +61,7 @@ No questions yet.
 * Popup placement
 * Consent page generate
 * Custom CSS
+* Support WP Super Cache (idea from Cookie Notice plugin)
+* Save user action to database
+* Display user PDPA Status on user list
+* Multi language support (Thai, English) more translate is accept

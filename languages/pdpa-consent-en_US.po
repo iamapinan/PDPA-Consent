@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PDPA Consent\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-05-11 21:46+0000\n"
-"PO-Revision-Date: 2020-05-11 21:47+0000\n"
+"POT-Creation-Date: 2020-05-12 11:53+0000\n"
+"PO-Revision-Date: 2020-05-12 11:54+0000\n"
 "Last-Translator: \n"
 "Language-Team: English (United States)\n"
 "Language: en_US\n"
@@ -14,62 +14,108 @@ msgstr ""
 "X-Generator: Loco https://localise.biz/\n"
 "X-Loco-Version: 2.3.3; wp-5.4.1"
 
+#: pdpa-consent.php:191
+msgid "Read term and privacy policy"
+msgstr "Read term and privacy policy"
+
+#: pdpa-consent.php:194
+msgid "Allow"
+msgstr "Allow"
+
+#: pdpa-consent.php:195
+msgid "Not Allow"
+msgstr "Not Allow"
+
+#: pdpa-consent.php:204
+msgid "PDPA Allow"
+msgstr "PDPA Allow"
+
+#: admin.php:23
+msgid "pdpa-term"
+msgstr "pdpa-term"
+
+#: admin.php:49
+msgid "Thailand’s Personal Data Protection Act (PDPA)"
+msgstr "Thailand’s Personal Data Protection Act (PDPA)"
+
 #. Name of the plugin
-#: admin.php:24
+#: admin.php:61
 msgid "PDPA Consent"
 msgstr "PDPA Consent"
 
 #. id
-#: admin.php:56
+#: admin.php:96
 msgid "PDPA Consent setup"
 msgstr "PDPA Consent setup"
 
 #. id
-#: admin.php:67
+#: admin.php:108
+msgid "Privacy page"
+msgstr "Privacy page"
+
+#. id
+#: admin.php:117
 msgid "Enable consent noti"
 msgstr "Enable consent noti"
 
 #. id
-#: admin.php:74
+#: admin.php:124
 msgid "Notification popup type"
 msgstr "Notification popup type"
 
 #. id
-#: admin.php:81
+#: admin.php:131
 msgid "Popup message"
 msgstr "Popup message"
 
 #. id
-#: admin.php:88
+#: admin.php:138
 msgid "Website name (*)"
 msgstr "Website name (*)"
 
 #. id
-#: admin.php:95
+#: admin.php:145
 msgid "Web description"
 msgstr "Web description"
 
 #. id
-#: admin.php:102
+#: admin.php:152
 msgid "List of user data (*)<br>(one data set per line)"
 msgstr "List of user data (*)<br>(one data set per line)"
 
 #. id
-#: admin.php:109
+#: admin.php:159
 msgid "Address (*)"
 msgstr "Address (*)"
 
 #. id
-#: admin.php:116
+#: admin.php:166
 msgid "Contact"
 msgstr "Contact"
 
 #. id
-#: admin.php:123
+#: admin.php:173
 msgid "Email (*)"
 msgstr "Email (*)"
 
-#: admin.php:149
+#. id
+#: admin.php:180
+msgid "Custom CSS"
+msgstr "Custom CSS"
+
+#: admin.php:203
+msgid "Center popup"
+msgstr "Center popup"
+
+#: admin.php:204
+msgid "Bottom bar"
+msgstr "Bottom bar"
+
+#: admin.php:205
+msgid "Top bar"
+msgstr "Top bar"
+
+#: admin.php:213
 msgid ""
 "Your privacy is important to us. We need your data just for the important "
 "process of services. Please allow if you accept the term of privacy included "
@@ -79,11 +125,11 @@ msgstr ""
 "process of services. Please allow if you accept the term of privacy included "
 "PDPA compiled."
 
-#: admin.php:157
+#: admin.php:221
 msgid "Your website name or Company name"
 msgstr "Your website name or Company name"
 
-#: admin.php:187
+#: admin.php:251
 msgid "Such as John Doe (081-111-1111)"
 msgstr "Such as John Doe (081-111-1111)"
 

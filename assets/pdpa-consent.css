@@ -1,3 +1,4 @@
+
 .consent-wrap {
     padding: 15px;
     background-color: #ffffff;
@@ -50,4 +51,37 @@
 .pdpa-consent-not-allow-button {
     background-color: #d4304c;
     color: #fff;
+}
+/** Tablet **/
+@media (max-width: 1023px) {
+    .place-center {
+        position: fixed;
+        z-index: 99999;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        margin: auto;
+        width: 100%;
+        max-height: 25vh;
+        box-shadow: 3px 3px 50px rgba(3,3,3,0.25);
+        border-radius: 6px;
+    }
+}
+
+/** Mobile **/
+@media (max-width: 575px) {
+    .place-center {
+        position: fixed;
+        z-index: 99999;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        margin: auto;
+        width: 100%;
+        max-height: 25vh;
+        box-shadow: 3px 3px 50px rgba(3,3,3,0.25);
+        border-radius: 6px;
+    }
 }
