@@ -51,6 +51,10 @@ No questions yet.
 == Screenshots ==
 
 1. screenshot-1.png
+2. screenshot-2.png
+3. screenshot-3.png
+4. screenshot-4.png
+5. screenshot-5.png
 
 == Changelog ==
 
@@ -65,3 +69,7 @@ No questions yet.
 * Save user action to database
 * Display user PDPA Status on user list
 * Multi language support (Thai, English) more translate is accept
+
+== Upgrade Notice ==
+
+Always keep plugin up to date.
