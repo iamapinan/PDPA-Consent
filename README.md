@@ -1,7 +1,10 @@
-# PDPA Consent
+![assets/pdpa-consent-banner.png](assets/pdpa-consent-banner.png)  
 
 This WordPress plugin help you to generate Thailand PDPA consent terms page and consent notification popup. 
-You can edit the term page and publish on your website with elegant and powerful solution. !!! No jquery need at all.  
+You can edit the term page and publish on your website with elegant and powerful solution. !!! No jquery need at all. 
+
+### Download new release
+-> [Release page is here.](https://github.com/iamapinan/PDPA-Consent/releases)
 
 ### To install. 
 1. Install PDPA Consent via the WordPress.org plugin directory, or by uploading the files to your server
@@ -23,5 +26,8 @@ You can edit the term page and publish on your website with elegant and powerful
 ### Contributors.
 - **Apinan Woratrakun** *as developer* <iamapinan@gmail.com>, <https://facebook.com/9apinan>, <https://ioblog.me>
 - **Aeknarin Sirisub** *as technical privacy system desgin* <https://www.facebook.com/swodsman>
+
+[GNU 3.0 License](https://opensource.org/licenses/lgpl-3.0.html0)
+
 
 ![assets/pdpa-consent-logo.jpg](assets/pdpa-consent-sm.jpg)
