@@ -12,4 +12,4 @@ You can edit the term page and publish on your website with elegant and powerful
 - **Apinan Woratrakun** *as developer* <iamapinan@gmail.com>, <https://facebook.com/9apinan>, <https://ioblog.me>
 - **Aeknarin Sirisub** *as technical privacy system desgin* <https://www.facebook.com/swodsman>
 
-![assets/pdpa-consent-logo.jpg](assets/pdpa-consent-logo.jpg)
+![assets/pdpa-consent-logo.jpg](assets/pdpa-consent-sm.jpg)
