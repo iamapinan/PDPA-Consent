@@ -29,5 +29,7 @@ You can edit the term page and publish on your website with elegant and powerful
 
 [GNU 3.0 License](https://opensource.org/licenses/lgpl-3.0.html0)
 
+### Special Thank
+* Thai Programmer Association
 
 ![assets/pdpa-consent-logo.jpg](assets/pdpa-consent-sm.jpg)
