@@ -23,6 +23,13 @@ You can edit the term page and publish on your website with elegant and powerful
 * Display user PDPA Status on user list
 * Multi language support (Thai, English) more translate is accept
 
+### Roadmap
+
+* Allow user to request profile data.
+* Allow user to request to delete account.
+* Allow user to allow consent again.
+* User page.
+
 ### Contributors.
 - **Apinan Woratrakun** *as developer* <iamapinan@gmail.com>, <https://facebook.com/9apinan>, <https://ioblog.me>
 - **Aeknarin Sirisub** *as technical privacy system desgin* <https://www.facebook.com/swodsman>
@@ -31,5 +38,3 @@ You can edit the term page and publish on your website with elegant and powerful
 
 ### Special Thank
 * Thai Programmer Association
-
-![assets/pdpa-consent-logo.jpg](assets/pdpa-consent-sm.jpg)
