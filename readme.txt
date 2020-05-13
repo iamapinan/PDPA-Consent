@@ -1,11 +1,11 @@
 === PDPA Consent for Thailand ===
 Contributors: iamapinan
 Donate link: https://paypal.me/apinu
-Tags: pdpa, gdpr, cookie, cookies, notice, notification, notify, cookie, cookie law, privacy, policy, consent, law, Thailand, compliance, consent
-Requires at least: 3.3
+Tags: pdpa, gdpr, pdpa-consent, cookie, notice, notification, notify, cookie, cookie law, privacy, policy, consent, law, Thailand, compliance, consent
+Requires at least: 4.3
 Requires PHP: 5.4.6
 Tested up to: 5.4.1
-Stable tag: 1.0.1
+Stable tag: 1.0.2
 License: GNU 3.0
 License URI: https://opensource.org/licenses/lgpl-3.0.html
 
@@ -25,14 +25,23 @@ It was adopted into law on May 28, 2019, after being published in the Royal Thai
 
 * Customizable message
 * Identity setup
-* User data list
 * Popup placement
 * Consent page generate
-* Custom CSS
+* CSS Class for developer
+* Dark mode
+* Button color config
 * Support WP Super Cache (idea from Cookie Notice plugin)
 * Save user action to database
 * Display user PDPA Status on user list
+* Responsive
 * Multi language support (Thai, English) more translate is accept
+
+== Roadmap ==
+
+* Allow user to request profile data.
+* Allow user to request to delete account.
+* Allow user to allow consent again.
+* User page.
 
 = Get involved =
 
@@ -53,10 +62,17 @@ No questions yet.
 1. screenshot-1.png
 2. screenshot-2.png
 3. screenshot-3.png
-4. screenshot-4.png
-5. screenshot-5.png
 
 == Changelog ==
+
+= 1.0.2
+* Add dark mode
+* Button color
+* Use page id as privacy page url link
+* List of css class for developer
+* Remove custom css for security reason
+* Fix security and code style
+
 = 1.0.1 =
 * Fix mini issue.
 
