@@ -14,7 +14,6 @@ You can edit the term page and publish on your website with elegant and powerful
 ### Features
 * Customizable message
 * Identity setup
-* User data list
 * Popup placement
 * Consent page generate
 * Custom CSS
@@ -38,3 +37,13 @@ You can edit the term page and publish on your website with elegant and powerful
 
 ### Special Thank
 * Thai Programmer Association
+
+### Changelogs
+
+#### 1.0.2
+* Add dark mode
+* Button color
+* Use page id as privacy page url link
+* List of css class for developer
+* Remove custom css for security reason
+* Fix security and code style
