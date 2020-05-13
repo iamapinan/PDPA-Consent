@@ -22,8 +22,10 @@ if (!function_exists('add_action')) {
 }
 
 define('PDPA_PATH', plugin_dir_path(__FILE__));
-// Include Admin options
-include_once(PDPA_PATH . 'admin.php');
+// Includes
+include_once(PDPA_PATH . 'includes/admin.php');
+include_once(PDPA_PATH . 'includes/user.php');
+
 // Check get_plugin_data exists.
 if (!function_exists('get_plugin_data')) {
     require_once(ABSPATH . 'wp-admin/includes/plugin.php');
@@ -52,24 +54,59 @@ class pdpa_Consent
 
         $this->initial();
         new pdpa_consent_admin_option;
+        // new pdpa_consent_user;
     }
 
     public function initial()
     {
+        register_activation_hook( __FILE__, array( $this, 'plugin_activate' ));
         add_filter('body_class', array( $this, 'change_body_class' ));
         add_action('wp_body_open', array($this, 'add_consent'));
         add_action('wp_ajax_pdpa_action', array( $this, 'pdpa_action' ));
         add_action('wp_enqueue_scripts', array( $this, 'pdpa_enqueue_scripts' ));
         add_filter('manage_users_columns', array( $this, 'pdpa_add_user_columns' ));
         add_filter('manage_users_custom_column', array( $this, 'pdpa_add_user_column_data' ), 10, 3);
+        add_action('admin_init',  array( $this, 'load_plugin' ));
+    }
+
+    public function plugin_activate() {
+        add_option( 'Activated_Plugin', $this->plugin_info['TextDomain'] );
+    }
+
+    public function load_plugin() {
+        if (is_admin() && get_option('Activated_Plugin') == $this->plugin_info['TextDomain']) {
+            $this->generate_pdpa_user_page();
+            if(!get_option('pdpa-consent-page-id')) {
+                add_action('admin_notices', array( $this, 'setup_admin_notice' ));
+            }
+        }
     }
 
     public function setup_admin_notice()
     {
-        global $pagenow;
         echo '<div class="notice notice-warning is-dismissible">
             <p>'.__('Please setup PDPA Consent setting in <a href="/wp-admin/admin.php?page=pdpa-consent">plugin page.</a>', 'pdpa-consent').'</p>
         </div>';
+    }
+
+    public function generate_pdpa_user_page() {
+        if(!get_option('pdpa-consent-user_privacy-page')) {
+            $page_details = array(
+                'post_title'    => __('User Privacy', 'pdpa-consent'),
+                'post_name'     => 'pdpa-user-privacy',
+                'post_content'  => '[pdpa_user_page]',
+                'post_status'   => 'publish',
+                'post_author'   => 1,
+                'post_type'     => 'page'
+            );
+    
+            $page_id = wp_insert_post($page_details);
+            add_option('pdpa-consent-user_privacy-page', $page_id);
+
+            echo '<div class="notice notice-info is-dismissible">
+                <p>'.__('User privacy page is created <a href="/?p='.$page_id.'">View page</a>', 'pdpa-consent').'</p>
+            </div>';
+        }
     }
 
     public function pdpa_enqueue_scripts()
@@ -135,12 +172,12 @@ class pdpa_Consent
         $pdpa_meta = get_user_meta($current_user, 'pdpa_status', true);
 
         if ($pdpa_meta == '') {
-            add_user_meta($current_user, 'pdpa_status', $_POST['set_status']);
+            add_user_meta( $current_user, 'pdpa_status', esc_html( $_POST['set_status'] ));
         } else {
-            update_user_meta($current_user, 'pdpa_status', $_POST['set_status']);
+            update_user_meta($current_user, 'pdpa_status', esc_html( $_POST['set_status'] ));
         }
         
-        switch ($_POST['set_status']) {
+        switch (esc_html( $_POST['set_status'] )) {
             case 'pdpa-allow':
                 if (!$this->pdpa_cookies_accepted()) {
                     $this->wpsc_set_cookie();

@@ -73,7 +73,7 @@ class pdpa_consent_admin_option
     public function pdpa_enqueue_color_picker($hook_suffix)
     {
         wp_enqueue_style('wp-color-picker');
-        wp_enqueue_script('pdpa-script', plugins_url('assets/pdpa-admin-script.js', __FILE__), array( 'wp-color-picker' ), false, true);
+        wp_enqueue_script('pdpa-script', plugins_url('pdpa-consent/assets/pdpa-admin-script.js'), array( 'wp-color-picker' ), false, true);
     }
 
     public function pdpa_admin_option()
@@ -81,13 +81,26 @@ class pdpa_consent_admin_option
         if (isset($_POST)) {
             $this->generate_post_from_template();
         } ?>
-        <style>.admin-page form{margin-top: 24px;background-color: #fff;padding: 15px;width: 90%;border-radius: 6px;box-shadow: 2px 2px 3px rgba(3,3,3,0.15)}</style>
+        <style>
+            .admin-page form {
+                padding: 15px;
+                background-color: #fff;
+                margin: 20px 20px;
+                border: 1px solid #e4e4e4;
+                border-radius: 4px;
+                box-shadow: 2px 2px 4px rgba(3, 3, 3, 0.03);
+            }
+            .admin-page form th {
+                text-align: right;
+            }
+        </style>
+        <?php settings_errors(); ?>
         <div class="admin-page">
             <form method="post" action="options.php" id="pdpaConsent">
-            <?php settings_errors(); ?>
             <?php
                 settings_fields('_pdpa_setting_group');
-        do_settings_sections('settings'); ?>
+                do_settings_sections('settings'); 
+            ?>
             <table class="form-table">
                 <tr>
                     <th scope='row'></th>
@@ -95,7 +108,7 @@ class pdpa_consent_admin_option
                 </tr>
             </table>
             </form>
-            <p>Version: <?php echo $this->plugin_info['Version'];?>, Development by <?php echo $this->plugin_info['Author']; ?></p>
+            <p align="center">Version: <?php echo $this->plugin_info['Version']; ?>, Development by <?php echo $this->plugin_info['Author']; ?></p>
         </div>
         <?php
     }
@@ -373,7 +386,7 @@ class pdpa_consent_admin_option
     {
         printf(
             '<input class="regular-text" type="text" name="_option_name[site_email]" id="site_description" value="%s" required>',
-            isset($this->options['site_email']) ? esc_html($this->options['site_email']) : ''
+            isset($this->options['site_email']) ? sanitize_email($this->options['site_email']) : ''
         );
     }
 
@@ -384,6 +397,7 @@ class pdpa_consent_admin_option
         .pdpa-admin-table {
             border: 1px solid #eee;
             padding: 0px;
+            background-color: #fff;
         }
         .pdpa-admin-table tr td:first-child {
             color: #a23a08;
