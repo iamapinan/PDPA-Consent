@@ -21,15 +21,15 @@ if (!function_exists('add_action')) {
     exit;
 }
 
-define('PDPA_PATH', plugin_dir_path(__FILE__));
-// Includes
-include_once(PDPA_PATH . 'includes/admin.php');
-include_once(PDPA_PATH . 'includes/user.php');
-
 // Check get_plugin_data exists.
 if (!function_exists('get_plugin_data')) {
     require_once(ABSPATH . 'wp-admin/includes/plugin.php');
 }
+
+define('PDPA_PATH', plugin_dir_path(__FILE__));
+// Includes
+include_once(PDPA_PATH . 'includes/admin.php');
+include_once(PDPA_PATH . 'includes/user.php');
 
 class pdpa_Consent
 {
@@ -54,7 +54,6 @@ class pdpa_Consent
 
         $this->initial();
         new pdpa_consent_admin_option;
-        // new pdpa_consent_user;
     }
 
     public function initial()
@@ -76,17 +75,17 @@ class pdpa_Consent
     public function load_plugin() {
         if (is_admin() && get_option('Activated_Plugin') == $this->plugin_info['TextDomain']) {
             $this->generate_pdpa_user_page();
-            if(!get_option('pdpa-consent-page-id')) {
-                add_action('admin_notices', array( $this, 'setup_admin_notice' ));
-            }
+            add_action('admin_notices', array( $this, 'setup_admin_notice' ));
         }
     }
 
     public function setup_admin_notice()
     {
-        echo '<div class="notice notice-warning is-dismissible">
-            <p>'.__('Please setup PDPA Consent setting in <a href="/wp-admin/admin.php?page=pdpa-consent">plugin page.</a>', 'pdpa-consent').'</p>
-        </div>';
+        if (!get_option('pdpa-consent-page-id')) {
+            echo '<div class="notice notice-warning is-dismissible">
+                <p>'.__('Please setup PDPA Consent setting in <a href="/wp-admin/admin.php?page=pdpa-consent">plugin page.</a>', 'pdpa-consent').'</p>
+            </div>';
+        }
     }
 
     public function generate_pdpa_user_page() {
@@ -173,8 +172,10 @@ class pdpa_Consent
 
         if ($pdpa_meta == '') {
             add_user_meta( $current_user, 'pdpa_status', esc_html( $_POST['set_status'] ));
+            add_user_meta( $current_user, 'pdpa_status_time', time());
         } else {
             update_user_meta($current_user, 'pdpa_status', esc_html( $_POST['set_status'] ));
+            update_user_meta( $current_user, 'pdpa_status_time', time());
         }
         
         switch (esc_html( $_POST['set_status'] )) {
