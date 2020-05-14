@@ -19,4 +19,4 @@ function user_page_shortcode( $atts ) {
     load_script();
     require_once('user_template.php');
 }
-add_shortcode( 'pdpa_user_page', 'user_page_shortcode' );
+// add_shortcode( 'pdpa_user_page', 'user_page_shortcode' );

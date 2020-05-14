@@ -74,7 +74,7 @@ class pdpa_Consent
 
     public function load_plugin() {
         if (is_admin() && get_option('Activated_Plugin') == $this->plugin_info['TextDomain']) {
-            $this->generate_pdpa_user_page();
+            // $this->generate_pdpa_user_page();
             add_action('admin_notices', array( $this, 'setup_admin_notice' ));
         }
     }
