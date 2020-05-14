@@ -5,7 +5,7 @@ Tags: pdpa, gdpr, pdpa-consent, cookie, notice, notification, notify, cookie, co
 Requires at least: 4.3
 Requires PHP: 5.4.6
 Tested up to: 5.4.1
-Stable tag: 1.0.2
+Stable tag: 1.0.3
 License: GNU 3.0
 License URI: https://opensource.org/licenses/lgpl-3.0.html
 
@@ -91,7 +91,11 @@ No questions yet.
 
 == Changelog ==
 
-= 1.0.2
+= 1.0.3 =
+* First store release
+* Fixed security issue
+
+= 1.0.2 =
 * Add dark mode
 * Button color
 * Use page id as privacy page url link

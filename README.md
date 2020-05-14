@@ -69,6 +69,10 @@ You can edit the term page and publish on your website with elegant and powerful
 
 ### Changelogs
 
+#### 1.0.3
+* First store release
+* Fixed security issue
+
 #### 1.0.2
 * Add dark mode
 * Button color
