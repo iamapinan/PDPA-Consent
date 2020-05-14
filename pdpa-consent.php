@@ -5,7 +5,7 @@
 /*
 Plugin Name: PDPA Consent
 Description: PDPA Consent allows you to notify to the user to accept privacy terms. Comply with Thailand PDPA law.
-Version: 1.0.2
+Version: 1.0.3
 Author: Apinan Woratrakun, Aeknarin Sirisub
 Author URI: https://www.ioblog.me
 Plugin URI: https://github.com/iamapinan/PDPA-Consent
