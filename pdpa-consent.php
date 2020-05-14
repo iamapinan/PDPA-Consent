@@ -169,16 +169,16 @@ class pdpa_Consent
         $response = [];
         $current_user = get_current_user_id();
         $pdpa_meta = get_user_meta($current_user, 'pdpa_status', true);
-
+        $consent_set = sanitize_text_field( $_POST['set_status'] );
         if ($pdpa_meta == '') {
-            add_user_meta( $current_user, 'pdpa_status', esc_html( $_POST['set_status'] ));
+            add_user_meta( $current_user, 'pdpa_status', $consent_set );
             add_user_meta( $current_user, 'pdpa_status_time', time());
         } else {
-            update_user_meta($current_user, 'pdpa_status', esc_html( $_POST['set_status'] ));
+            update_user_meta($current_user, 'pdpa_status', $consent_set );
             update_user_meta( $current_user, 'pdpa_status_time', time());
         }
         
-        switch (esc_html( $_POST['set_status'] )) {
+        switch ( $consent_set ) {
             case 'pdpa-allow':
                 if (!$this->pdpa_cookies_accepted()) {
                     $this->wpsc_set_cookie();

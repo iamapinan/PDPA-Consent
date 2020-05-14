@@ -54,6 +54,8 @@ You can edit the term page and publish on your website with elegant and powerful
 * Wizard การตั้งค่า
 * ให้ผู้ใช้ต้องติ๊กถูกก่อนคลิกยินยอม โดยค่าเริ่มต้นคือไม่ติ๊ก
 * บันทึกประวัติการ ยินยอม/ไม่ยินยอม ย้อนหลัง
+* API สำหรับขอความยินยอมเป็นครั้งคราว
+* Server อยู่ในต่างประเทศหรือไม่
 
 ### Contributors.
 - **Apinan Woratrakun** *as developer* <iamapinan@gmail.com>, <https://facebook.com/9apinan>, <https://ioblog.me>
