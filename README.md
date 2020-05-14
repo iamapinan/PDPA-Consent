@@ -1,7 +1,21 @@
 ![assets/pdpa-consent-banner.png](assets/pdpa-consent-banner.png)  
 
 This WordPress plugin help you to generate Thailand PDPA consent terms page and consent notification popup. 
-You can edit the term page and publish on your website with elegant and powerful solution. !!! No jquery need at all. 
+You can edit the term page and publish on your website with elegant and powerful solution. !!! No jquery need at all.
+
+### Code of conduct
+
+- ปลั๊กอินนี้จัดทำขึ้นเพื่อตอบสนองต่อการปฏิบัติตาม พ.ร.บ.คุ้มครองข้อมูลส่วนบุคคล 2562 (PDPA) ของประเทศไทย
+- ปลั๊กอินนี้จัดทำขึ้นเพื่อแจกฟรี
+- ปลั๊กอินไม่มีความประสงค์ที่จะจัดเก็บค่าใช้งานแต่อย่างใด
+- ปลั๊กอินไม่ได้รับประกันในด้านความปลอดภัยต่อข้อมูล
+- ปลั๊กอินไม่ได้ป้องกันการฟ้องร้องที่อาจเกิดขึ้นโดยคู่กรณีได้  
+- ผู้ใช้งานปลั๊กอินเป็นผู้รับผิดชอบและตัดสินใจต่อการใช้และรักษาความปลอดภัยของข้อมูล
+- ปลั๊กอินไม่ได้เป็นผู้ประมวลผลข้อมูลหรือใช้ข้อมูลส่วนบุคคล
+- ปลั๊กอินไม่ได้เป็นผู้บล็อคการทำงานส่วนหนึ่งส่วนใดของเว็บไซต์ 
+- ปลั๊กอินจะมีการปรับปรุงเงื่อนไข PDPA ให้รัดกุมมากขึ้นเสมอ
+- การบริจาคมิใช่เพื่อเป็นสิ่งแลกเปลี่ยนในการใช้งานปลั๊กอิน PDPA Consent
+
 
 ### Download new release
 -> [Release page is here.](https://github.com/iamapinan/PDPA-Consent/releases)
@@ -14,21 +28,34 @@ You can edit the term page and publish on your website with elegant and powerful
 ### Features
 * Customizable message
 * Identity setup
-* User data list
 * Popup placement
 * Consent page generate
-* Custom CSS
+* CSS Class for developer
+* Dark mode
+* Button color config
 * Support WP Super Cache (idea from Cookie Notice plugin)
 * Save user action to database
 * Display user PDPA Status on user list
+* Responsive
 * Multi language support (Thai, English) more translate is accept
 
 ### Roadmap
 
-* Allow user to request profile data.
-* Allow user to request to delete account.
-* Allow user to allow consent again.
-* User page.
+* หน้าจัดการข้อมูลของผู้ใช้
+* ผู้ใช้สามารถขอถ่ายโอนข้อมูลได้
+* ผู้ใช้สามารถ ลบหรือขอให้ลบข้อมูลได้ ขึ้นกับนโยบาย
+* ผู้ใช้สามารถเลือกการยินยอมใหม่ได้
+* ผู้ใช้สามารถ แก้ไข/ขอให้แก้ไข ข้อมูลที่ยินยอมได้
+* ผู้ใช้สามารถเลือกประเภทข้อมูลที่ยินยอมและไม่ยินยอมได้
+* แบ่งประเภทข้อมูลพื้นฐาน, ข้อมูลละเอียดอ่อน, ข้อมูลทางอ้อม
+* เพิ่มเรื่อง การจัดเก็บข้อมูลแต่ละประเภท
+* เพิ่มเรื่อง การเผยแพร่ข้อมูลผ่าน API หรือไม่
+* เพิ่มเรื่อง การส่งข้อมูลไปต่างประเทศ หรือไม่
+* เพิ่ม Wizard การตั้งค่า
+* ให้ผู้ใช้ต้องติ๊กถูกก่อนคลิกยินยอม โดยค่าเริ่มต้นคือไม่ติ๊ก
+* บันทึกประวัติการ ยินยอม/ไม่ยินยอม ย้อนหลัง
+* API สำหรับขอความยินยอมเป็นครั้งคราว
+* Server อยู่ในต่างประเทศหรือไม่
 
 ### Contributors.
 - **Apinan Woratrakun** *as developer* <iamapinan@gmail.com>, <https://facebook.com/9apinan>, <https://ioblog.me>
@@ -38,3 +65,14 @@ You can edit the term page and publish on your website with elegant and powerful
 
 ### Special Thank
 * Thai Programmer Association
+* WordPress Bangkok friends
+
+### Changelogs
+
+#### 1.0.2
+* Add dark mode
+* Button color
+* Use page id as privacy page url link
+* List of css class for developer
+* Remove custom css for security reason
+* Fix security and code style
