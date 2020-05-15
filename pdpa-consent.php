@@ -5,7 +5,7 @@
 /*
 Plugin Name: PDPA Consent
 Description: PDPA Consent allows you to notify to the user to accept privacy terms. Comply with Thailand PDPA law.
-Version: 1.0.5
+Version: 1.0.6
 Author: Apinan Woratrakun, Aeknarin Sirisub
 Author URI: https://www.ioblog.me
 Plugin URI: https://github.com/iamapinan/PDPA-Consent
@@ -110,9 +110,10 @@ class pdpa_Consent
             $page_id = wp_insert_post($page_details);
             add_option('pdpa-consent-user_privacy-page', $page_id);
 
-            echo '<div class="notice notice-info is-dismissible">
-                <p>'.__('User privacy page is created <a href="/?p='.$page_id.'">View page</a>', 'pdpa-consent').'</p>
-            </div>';
+            printf('<div class="notice notice-info is-dismissible"><p>%s <a href="/?p='.$page_id.'">%s</a></p></div>',
+                __('User privacy page is created', 'pdpa-consent'),
+                __('View page', 'pdpa-consent')
+            );
         }
     }
 
@@ -128,7 +129,8 @@ class pdpa_Consent
             'ajax_url'      => admin_url('admin-ajax.php'),
             'pdpa_nonce'    => wp_create_nonce('pdpa-security'),
             'consent_enable'=> ($this->options['is_enable'] && !$this->pdpa_cookies_set()) ? 'yes' : 'no',
-            'current_user'  => get_current_user_id()
+            'current_user'  => get_current_user_id(),
+            'pdpa_version'  => $this->plugin_info['Version']
         );
 
         wp_localize_script('pdpa_ajax_handle', 'pdpa_ajax', $ajax_array);

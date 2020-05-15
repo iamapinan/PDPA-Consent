@@ -69,6 +69,9 @@ You can edit the term page and publish on your website with elegant and powerful
 
 ### Changelogs
 
+#### 1.0.6
+* on-demand regenrate term page.
+
 #### 1.0.5
 * Add support for version wp early than 5.2.
 

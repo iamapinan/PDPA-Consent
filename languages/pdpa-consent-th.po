@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PDPA Consent\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-05-13 12:41+0000\n"
-"PO-Revision-Date: 2020-05-13 12:47+0000\n"
+"POT-Creation-Date: 2020-05-15 07:23+0000\n"
+"PO-Revision-Date: 2020-05-15 07:27+0000\n"
 "Last-Translator: \n"
 "Language-Team: ไทย\n"
 "Language: th\n"
@@ -12,9 +12,9 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Loco https://localise.biz/\n"
-"X-Loco-Version: 2.3.3; wp-5.4.1"
+"X-Loco-Version: 2.3.4; wp-5.4.1"
 
-#: pdpa-consent.php:67
+#: pdpa-consent.php:94
 msgid ""
 "Please setup PDPA Consent setting in <a href=\"/wp-admin/admin.php?page=pdpa-"
 "consent\">plugin page.</a>"
@@ -22,139 +22,177 @@ msgstr ""
 "กรุณาตั้งค่า PDPA Consent ใน <a href=\"/wp-admin/admin.php?page=pdpa-"
 "consent\">plugin page.</a>"
 
-#: pdpa-consent.php:200
+#: pdpa-consent.php:102
+msgid "User Privacy"
+msgstr "ข้อมูลส่วนบุคคล"
+
+#: pdpa-consent.php:114
+msgid "User privacy page is created"
+msgstr "หน้าข้อมูลส่วนบุคคลถูกสร้างแล้ว"
+
+#: pdpa-consent.php:115
+msgid "View page"
+msgstr "ดูหน้า"
+
+#: pdpa-consent.php:263
 msgid "Read term and privacy policy"
 msgstr "อ่านเงื่อนไขการรักษาข้อมูลส่วนบุคคล"
 
-#: pdpa-consent.php:211 pdpa-consent.php:240
+#: pdpa-consent.php:273 pdpa-consent.php:303 includes/user_template.php:7
 msgid "Allow"
 msgstr "ยอมรับ"
 
-#: pdpa-consent.php:220
+#: pdpa-consent.php:281
 msgid "Not Allow"
 msgstr "ไม่ยอมรับ"
 
-#: pdpa-consent.php:229
+#: pdpa-consent.php:291
 msgid "PDPA Allow"
 msgstr "ยอมรับ PDPA"
 
-#: pdpa-consent.php:238
+#: pdpa-consent.php:301
 msgid "Waiting for consent."
 msgstr "รออนุมัติ"
 
-#: pdpa-consent.php:238
+#: pdpa-consent.php:301
 msgid "Waiting."
 msgstr "รอ"
 
-#: pdpa-consent.php:240
+#: pdpa-consent.php:303 includes/user_template.php:7
+#: includes/user_template.php:7
 msgid "Not allow."
 msgstr "ไม่อนุมัติ"
 
-#: pdpa-consent.php:240
+#: pdpa-consent.php:303 includes/user_template.php:7
 msgid "Allow."
 msgstr "อนุมัติ"
 
-#: admin.php:23
+#: includes/user_template.php:10
+msgid "Timestamp"
+msgstr "เมื่อ"
+
+#: includes/user_template.php:15
+msgid "Download profile data"
+msgstr "ดาวน์โหลดสำเนาข้อมูล"
+
+#: includes/user_template.php:16
+msgid "Reset consent"
+msgstr "แก้ไขการยินยอม"
+
+#: includes/user_template.php:17
+msgid "Delete account"
+msgstr "ลบข้อมูลบัญชีผู้ใช้ทั้งหมด"
+
+#: includes/admin.php:27
 msgid "pdpa-term"
 msgstr "pdpa-term"
 
-#: admin.php:50
+#: includes/admin.php:60
 msgid "Thailand’s Personal Data Protection Act (PDPA)"
 msgstr "เงื่อนไขและนโยบายข้อมูลส่วนบุคลล (PDPA)"
 
+#: includes/admin.php:78
+msgid "PDPA Consent term page is regenerated."
+msgstr "หน้า PDPA Term ถูกสร้างใหม่แล้ว"
+
 #. Name of the plugin
-#: admin.php:63
+#: includes/admin.php:84
 msgid "PDPA Consent"
 msgstr "PDPA Consent"
 
 #. id
-#: admin.php:106
+#: includes/admin.php:139
 msgid "PDPA Consent setup"
 msgstr "ตั้งค่า PDPA Consent"
 
 #. id
-#: admin.php:119
+#: includes/admin.php:152
 msgid "Privacy page"
 msgstr "หน้า Privacy Policy ที่ถูกสร้าง"
 
 #. id
-#: admin.php:128
+#: includes/admin.php:161
+msgid "Regenerate the privacy page."
+msgstr "สร้างหน้า PDPA Term ใหม่อีกครั้ง"
+
+#. id
+#: includes/admin.php:169
 msgid "Enable consent noti"
 msgstr "เปิดใช้งาน Popup แจ้งเตือน"
 
 #. id
-#: admin.php:162
+#: includes/admin.php:206
 msgid "Use dark theme"
 msgstr "ใช้ธีมมืด"
 
 #. id
-#: admin.php:169
+#: includes/admin.php:213
 msgid "Allow button color"
 msgstr "สีปุ่มอนุญาต"
 
 #. id
-#: admin.php:176
+#: includes/admin.php:220
 msgid "Not allow button color"
 msgstr "สีปุ่มไม่อนุญาต"
 
 #. id
-#: admin.php:183
+#: includes/admin.php:227
 msgid "Notification popup type"
 msgstr "รูปแบบการแจ้งเตือน"
 
 #. id
-#: admin.php:190
+#: includes/admin.php:234
 msgid "Popup message"
 msgstr "ข้อความแจ้ง"
 
 #. id
-#: admin.php:197
+#: includes/admin.php:241
 msgid "Website name (*)"
 msgstr "ชื่อเว็บไซต์ (*)"
 
 #. id
-#: admin.php:204
+#: includes/admin.php:248
 msgid "Web description"
 msgstr "คำอธิบายเกี่ยวกับบริการ"
 
 #. id
-#: admin.php:211
+#: includes/admin.php:255
 msgid "List of user data (*)<br>(one data set per line)"
 msgstr "รายการข้อมูลที่ขอสิทธิ (*)<br>(1 แถวต่อ 1 ข้อมูลที่ขอ)"
 
 #. id
-#: admin.php:218
+#: includes/admin.php:262
 msgid "Address (*)"
 msgstr "ที่อยู่ (*)"
 
 #. id
-#: admin.php:225
+#: includes/admin.php:269
 msgid "Contact"
 msgstr "การติดต่อ"
 
 #. id
-#: admin.php:232
+#: includes/admin.php:276
 msgid "Email (*)"
 msgstr "อีเมล์ (*)"
 
 #. id
-#: admin.php:239
+#: includes/admin.php:283
 msgid "CSS Class"
 msgstr "CSS Class"
 
-#: admin.php:299
+#: includes/admin.php:359
 msgid "Top bar"
 msgstr "ด้านบน"
 
-#: admin.php:300
+#: includes/admin.php:360
 msgid "Center popup"
 msgstr "ตรงกลาง"
 
-#: admin.php:301
+#: includes/admin.php:361
 msgid "Bottom bar"
 msgstr "ด้านล่าง"
 
-#: admin.php:309
+#: includes/admin.php:370
 msgid ""
 "Your privacy is important to us. We need your data just for the important "
 "process of services. Please allow if you accept the term of privacy comply "
@@ -164,31 +202,31 @@ msgstr ""
 "เราต้องการข้อมูลของคุณเพียงเพื่อการประมวลผลที่จำเป็นต่อการให้บริการ โปรด "
 "ยินยอม ถ้าคุณยอมรับเงื่อนไขการข้อตกลงในการใช้งานที่รวมถึง PDPA ของไทย"
 
-#: admin.php:317
+#: includes/admin.php:379
 msgid "Your website name or Company name"
 msgstr "ชื่อเว็บไซต์หรือชื่อบริการของคุณ"
 
-#: admin.php:347
+#: includes/admin.php:413
 msgid "Such as John Doe (081-111-1111)"
 msgstr "เช่น มะลิ (081-111-1111)"
 
-#: admin.php:376
+#: includes/admin.php:445
 msgid "For wrapper div element"
 msgstr "For wrapper div element"
 
-#: admin.php:380
+#: includes/admin.php:449
 msgid "Make the box place to top bar"
 msgstr "Make the box place to top bar"
 
-#: admin.php:384
+#: includes/admin.php:453
 msgid "Make the box place center the screen"
 msgstr "Make the box place center the screen"
 
-#: admin.php:396
+#: includes/admin.php:465
 msgid "Style for not allow button"
 msgstr "Style for not allow button"
 
-#: admin.php:400
+#: includes/admin.php:469
 msgid "Style for allow button"
 msgstr "Style for allow button"
 
