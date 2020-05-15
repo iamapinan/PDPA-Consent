@@ -5,7 +5,7 @@ Tags: pdpa, gdpr, pdpa-consent, cookie, notice, notification, notify, cookie, co
 Requires at least: 4.3
 Requires PHP: 5.4.6
 Tested up to: 5.4.1
-Stable tag: 1.0.4
+Stable tag: 1.0.5
 License: GNU 3.0
 License URI: https://opensource.org/licenses/lgpl-3.0.html
 
@@ -92,6 +92,9 @@ No questions yet.
 3. screenshot-3.png
 
 == Changelog ==
+
+= 1.0.5 =
+* Add support for version wp early than 5.2.
 
 = 1.0.4 =
 * Fix conflict with woo-line-notify plugin
