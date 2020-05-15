@@ -2,7 +2,6 @@
  * Package: pdpa-consent
  * (c) Apinan Woratrakun <iamapinan@gmail.com>
  */
-console.log(pdpa_ajax.consent_enable)
 if (pdpa_ajax.consent_enable == 'yes') {
     document.addEventListener("DOMContentLoaded", function () {
         var allow_button = document.getElementById("PDPAAllow")

@@ -53,7 +53,7 @@ You can edit the term page and publish on your website with elegant and powerful
 * เพิ่มเรื่อง การส่งข้อมูลไปต่างประเทศ หรือไม่
 * เพิ่ม Wizard การตั้งค่า
 * ให้ผู้ใช้ต้องติ๊กถูกก่อนคลิกยินยอม โดยค่าเริ่มต้นคือไม่ติ๊ก
-* บันทึกประวัติการ ยินยอม/ไม่ยินยอม ย้อนหลัง
+* บันทึกประวัติการ ยินยอม/ไม่ยินยอม ใหม่ได้
 * API สำหรับขอความยินยอมเป็นครั้งคราว
 * Server อยู่ในต่างประเทศหรือไม่
 
@@ -68,6 +68,9 @@ You can edit the term page and publish on your website with elegant and powerful
 * WordPress Bangkok friends
 
 ### Changelogs
+
+#### 1.0.4
+* Fix conflict with woo-line-notify plugin
 
 #### 1.0.3
 * First store release
