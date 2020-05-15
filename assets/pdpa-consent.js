@@ -21,6 +21,20 @@ if (pdpa_ajax.consent_enable == 'yes') {
 }
 
 const pdpa_ajax_call = (action_require) => {
+    // Guest process.
+    if(pdpa_ajax.current_user == 'guest') {
+        var the_date = new Date();
+        cookie_expire = the_date.setDate(the_date.getDate() + 30)
+        cookie_process({
+            type: action_require == 'pdpa-allow' ? 'user_allow' : 'user_not_allow',
+            cookie_name: 'pdpa_accepted',
+            cookie_expire: new Date(cookie_expire),
+            cookie_domain: window.location.hostname
+        });
+
+        return ;
+    }
+
     var xhr = new XMLHttpRequest();
     var fd = new FormData();
 
@@ -38,12 +52,12 @@ const pdpa_ajax_call = (action_require) => {
     xhr.send(fd);
 }
 
-const cookie_process = ($d) => {
+const cookie_process = (d) => {
     var cookie_string = '';
-    if ($d.type == 'user_allow') {
-        cookie_string = $d.cookie_name + "=1; expires=" + $d.cookie_expire + "; domain=" + $d.cookie_domain + "; path=/";
-    } else if ($d.type == 'user_not_allow') {
-        cookie_string = $d.cookie_name + "=0; expires=" + $d.cookie_expire + "; domain=" + $d.cookie_domain + "; path=/";
+    if (d.type == 'user_allow') {
+        cookie_string = d.cookie_name + "=1; expires=" + d.cookie_expire + "; domain=" + d.cookie_domain + "; path=/";
+    } else if (d.type == 'user_not_allow') {
+        cookie_string = d.cookie_name + "=0; expires=" + d.cookie_expire + "; domain=" + d.cookie_domain + "; path=/";
     } else {
         console.log("error.")
     }

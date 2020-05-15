@@ -5,7 +5,7 @@
 /*
 Plugin Name: PDPA Consent
 Description: PDPA Consent allows you to notify to the user to accept privacy terms. Comply with Thailand PDPA law.
-Version: 1.0.5
+Version: 1.0.7
 Author: Apinan Woratrakun, Aeknarin Sirisub
 Author URI: https://www.ioblog.me
 Plugin URI: https://github.com/iamapinan/PDPA-Consent
@@ -31,7 +31,7 @@ define('PDPA_PATH', plugin_dir_path(__FILE__));
 include_once(PDPA_PATH . 'includes/admin.php');
 include_once(PDPA_PATH . 'includes/user.php');
 
-class pdpa_Consent
+class PDPA_Consent
 {
     private $ver;
     private $show_popup = true;
@@ -48,7 +48,7 @@ class pdpa_Consent
     {
         $this->plugin_info = get_plugin_data(PDPA_PATH . 'pdpa-consent.php');
         $this->locale = is_admin() && function_exists('get_user_locale') ? get_user_locale() : get_locale();
-        $this->cookie_domain = $_SERVER['SERVER_NAME'];
+        $this->cookie_domain = parse_url(site_url())['host'];
         $this->cookie_expire = strtotime("next Month");
         $this->options = get_option('pdpa_option');
 
@@ -110,25 +110,27 @@ class pdpa_Consent
             $page_id = wp_insert_post($page_details);
             add_option('pdpa-consent-user_privacy-page', $page_id);
 
-            echo '<div class="notice notice-info is-dismissible">
-                <p>'.__('User privacy page is created <a href="/?p='.$page_id.'">View page</a>', 'pdpa-consent').'</p>
-            </div>';
+            printf('<div class="notice notice-info is-dismissible"><p>%s <a href="/?p='.$page_id.'">%s</a></p></div>',
+                __('User privacy page is created', 'pdpa-consent'),
+                __('View page', 'pdpa-consent')
+            );
         }
     }
 
     public function pdpa_enqueue_scripts()
     {
-        wp_enqueue_style('pdpa-consent', plugins_url('assets/pdpa-consent.min.css', __FILE__), array(), $this->plugin_info['Version']);
+        wp_enqueue_style('pdpa-consent', plugins_url('assets/pdpa-consent.css', __FILE__), array(), $this->plugin_info['Version']);
         
         // Register the script
-        wp_register_script('pdpa_ajax_handle', plugins_url('assets/pdpa-consent.min.js', __FILE__), array(), $this->plugin_info['Version']);
+        wp_register_script('pdpa_ajax_handle', plugins_url('assets/pdpa-consent.js', __FILE__), array(), $this->plugin_info['Version']);
         
         // Localize the script with new data
         $ajax_array = array(
             'ajax_url'      => admin_url('admin-ajax.php'),
             'pdpa_nonce'    => wp_create_nonce('pdpa-security'),
             'consent_enable'=> ($this->options['is_enable'] && !$this->pdpa_cookies_set()) ? 'yes' : 'no',
-            'current_user'  => get_current_user_id()
+            'current_user'  => is_user_logged_in() ? get_current_user_id() : 'guest',
+            'pdpa_version'  => $this->plugin_info['Version']
         );
 
         wp_localize_script('pdpa_ajax_handle', 'pdpa_ajax', $ajax_array);
@@ -176,8 +178,9 @@ class pdpa_Consent
 
         $response = [];
         $current_user = get_current_user_id();
-        $pdpa_meta = get_user_meta($current_user, 'pdpa_status', true);
         $consent_set = sanitize_text_field( $_POST['set_status'] );
+        $pdpa_meta = get_user_meta($current_user, 'pdpa_status', true);
+
         if ($pdpa_meta == '') {
             add_user_meta( $current_user, 'pdpa_status', $consent_set );
             add_user_meta( $current_user, 'pdpa_status_time', time());
@@ -290,7 +293,6 @@ class pdpa_Consent
         return $column;
     }
     
-
     //add the data
     public function pdpa_add_user_column_data($val, $column_name, $user_id)
     {
@@ -306,4 +308,4 @@ class pdpa_Consent
 /**
  * Initialize PDPA Consent.
  */
-new pdpa_Consent;
+new PDPA_Consent;

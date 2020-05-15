@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PDPA Consent\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-05-13 12:41+0000\n"
+"POT-Creation-Date: 2020-05-15 07:23+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: \n"
@@ -15,176 +15,214 @@ msgstr ""
 "X-Generator: Loco https://localise.biz/\n"
 "X-Loco-Version: 2.3.3; wp-5.4.1"
 
-#: pdpa-consent.php:67
+#: pdpa-consent.php:94
 msgid ""
 "Please setup PDPA Consent setting in <a href=\"/wp-admin/admin.php?page=pdpa-"
 "consent\">plugin page.</a>"
 msgstr ""
 
-#: pdpa-consent.php:200
+#: pdpa-consent.php:102
+msgid "User Privacy"
+msgstr ""
+
+#: pdpa-consent.php:114
+msgid "User privacy page is created"
+msgstr ""
+
+#: pdpa-consent.php:115
+msgid "View page"
+msgstr ""
+
+#: pdpa-consent.php:263
 msgid "Read term and privacy policy"
 msgstr ""
 
-#: pdpa-consent.php:211 pdpa-consent.php:240
+#: pdpa-consent.php:273 pdpa-consent.php:303 includes/user_template.php:7
 msgid "Allow"
 msgstr ""
 
-#: pdpa-consent.php:220
+#: pdpa-consent.php:281
 msgid "Not Allow"
 msgstr ""
 
-#: pdpa-consent.php:229
+#: pdpa-consent.php:291
 msgid "PDPA Allow"
 msgstr ""
 
-#: pdpa-consent.php:238
+#: pdpa-consent.php:301
 msgid "Waiting for consent."
 msgstr ""
 
-#: pdpa-consent.php:238
+#: pdpa-consent.php:301
 msgid "Waiting."
 msgstr ""
 
-#: pdpa-consent.php:240
+#: pdpa-consent.php:303 includes/user_template.php:7
+#: includes/user_template.php:7
 msgid "Not allow."
 msgstr ""
 
-#: pdpa-consent.php:240
+#: pdpa-consent.php:303 includes/user_template.php:7
 msgid "Allow."
 msgstr ""
 
-#: admin.php:23
+#: includes/user_template.php:10
+msgid "Timestamp"
+msgstr ""
+
+#: includes/user_template.php:15
+msgid "Download profile data"
+msgstr ""
+
+#: includes/user_template.php:16
+msgid "Reset consent"
+msgstr ""
+
+#: includes/user_template.php:17
+msgid "Delete account"
+msgstr ""
+
+#: includes/admin.php:27
 msgid "pdpa-term"
 msgstr ""
 
-#: admin.php:50
+#: includes/admin.php:60
 msgid "Thailand’s Personal Data Protection Act (PDPA)"
 msgstr ""
 
+#: includes/admin.php:78
+msgid "PDPA Consent term page is regenerated."
+msgstr ""
+
 #. Name of the plugin
-#: admin.php:63
+#: includes/admin.php:84
 msgid "PDPA Consent"
 msgstr ""
 
 #. id
-#: admin.php:106
+#: includes/admin.php:139
 msgid "PDPA Consent setup"
 msgstr ""
 
 #. id
-#: admin.php:119
+#: includes/admin.php:152
 msgid "Privacy page"
 msgstr ""
 
 #. id
-#: admin.php:128
+#: includes/admin.php:161
+msgid "Regenerate the privacy page."
+msgstr ""
+
+#. id
+#: includes/admin.php:169
 msgid "Enable consent noti"
 msgstr ""
 
 #. id
-#: admin.php:162
+#: includes/admin.php:206
 msgid "Use dark theme"
 msgstr ""
 
 #. id
-#: admin.php:169
+#: includes/admin.php:213
 msgid "Allow button color"
 msgstr ""
 
 #. id
-#: admin.php:176
+#: includes/admin.php:220
 msgid "Not allow button color"
 msgstr ""
 
 #. id
-#: admin.php:183
+#: includes/admin.php:227
 msgid "Notification popup type"
 msgstr ""
 
 #. id
-#: admin.php:190
+#: includes/admin.php:234
 msgid "Popup message"
 msgstr ""
 
 #. id
-#: admin.php:197
+#: includes/admin.php:241
 msgid "Website name (*)"
 msgstr ""
 
 #. id
-#: admin.php:204
+#: includes/admin.php:248
 msgid "Web description"
 msgstr ""
 
 #. id
-#: admin.php:211
+#: includes/admin.php:255
 msgid "List of user data (*)<br>(one data set per line)"
 msgstr ""
 
 #. id
-#: admin.php:218
+#: includes/admin.php:262
 msgid "Address (*)"
 msgstr ""
 
 #. id
-#: admin.php:225
+#: includes/admin.php:269
 msgid "Contact"
 msgstr ""
 
 #. id
-#: admin.php:232
+#: includes/admin.php:276
 msgid "Email (*)"
 msgstr ""
 
 #. id
-#: admin.php:239
+#: includes/admin.php:283
 msgid "CSS Class"
 msgstr ""
 
-#: admin.php:299
+#: includes/admin.php:359
 msgid "Top bar"
 msgstr ""
 
-#: admin.php:300
+#: includes/admin.php:360
 msgid "Center popup"
 msgstr ""
 
-#: admin.php:301
+#: includes/admin.php:361
 msgid "Bottom bar"
 msgstr ""
 
-#: admin.php:309
+#: includes/admin.php:370
 msgid ""
 "Your privacy is important to us. We need your data just for the important "
 "process of services. Please allow if you accept the term of privacy comply "
 "with PDPA."
 msgstr ""
 
-#: admin.php:317
+#: includes/admin.php:379
 msgid "Your website name or Company name"
 msgstr ""
 
-#: admin.php:347
+#: includes/admin.php:413
 msgid "Such as John Doe (081-111-1111)"
 msgstr ""
 
-#: admin.php:376
+#: includes/admin.php:445
 msgid "For wrapper div element"
 msgstr ""
 
-#: admin.php:380
+#: includes/admin.php:449
 msgid "Make the box place to top bar"
 msgstr ""
 
-#: admin.php:384
+#: includes/admin.php:453
 msgid "Make the box place center the screen"
 msgstr ""
 
-#: admin.php:396
+#: includes/admin.php:465
 msgid "Style for not allow button"
 msgstr ""
 
-#: admin.php:400
+#: includes/admin.php:469
 msgid "Style for allow button"
 msgstr ""
 

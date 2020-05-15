@@ -45,6 +45,10 @@ class pdpa_consent_admin_option
     public function generate_post_from_template()
     {
         $this->options = get_option('pdpa_option');
+
+        if(!$this->options['regenerate'])
+            return false;
+
         if (file_exists(PDPA_PATH . 'templates/' . $this->locale . '.html')) {
             $content = $this->serialize_html(file_get_contents(PDPA_PATH . 'templates/'. $this->locale .'.html'), $this->options);
         } else {
@@ -62,7 +66,17 @@ class pdpa_consent_admin_option
         );
 
         $page_id = wp_insert_post($page_details);
+        $this->options['regenerate'] = 0;
+        update_option('pdpa_option', $this->options);
         add_option('pdpa-consent-page-id', $page_id);
+        add_action('admin_notices', array( $this, 'page_generate_notice' ), 20);
+    }
+
+    public function page_generate_notice()
+    {
+        echo '<div class="notice notice-warning is-dismissible">
+            <p>'.__('PDPA Consent term page is regenerated.', 'pdpa-consent').'</p>
+        </div>';
     }
 
     public function pdpa_admin_menu()
@@ -143,12 +157,23 @@ class pdpa_consent_admin_option
         }
 
         add_settings_field(
+            'regenerate', // id
+            __('Regenerate the privacy page.', 'pdpa-consent'), // title
+            array( $this, 'regenerate_callback' ), // callback
+            'settings', // page
+            '_pdpa_setting_section' // section
+        );
+
+        add_settings_field(
             'is_enable', // id
             __('Enable consent noti', 'pdpa-consent'), // title
             array( $this, 'is_enable_callback' ), // callback
             'settings', // page
             '_pdpa_setting_section' // section
         );
+
+        
+
         /***
          * Future functions
          *
@@ -276,6 +301,13 @@ class pdpa_consent_admin_option
         printf(
             '<input type="checkbox" name="pdpa_option[is_enable]" id="is_enable" value="1" %s>',
             $this->options['is_enable'] == true ? 'checked' : ''
+        );
+    }
+    public function regenerate_callback()
+    {
+        printf(
+            '<input type="checkbox" name="pdpa_option[regenerate]" id="is_enable" value="1" %s>',
+            !isset($this->options['regenerate']) ? 'checked' : ''
         );
     }
     public function allow_user_reset_callback()
