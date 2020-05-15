@@ -44,7 +44,7 @@ class pdpa_consent_admin_option
 
     public function generate_post_from_template()
     {
-        $this->options = get_option('_option_name');
+        $this->options = get_option('pdpa_option');
         if (file_exists(PDPA_PATH . 'templates/' . $this->locale . '.html')) {
             $content = $this->serialize_html(file_get_contents(PDPA_PATH . 'templates/'. $this->locale .'.html'), $this->options);
         } else {
@@ -117,7 +117,7 @@ class pdpa_consent_admin_option
     {
         register_setting(
             '_pdpa_setting_group', // option_group
-            '_option_name' // option_name
+            'pdpa_option' // option_name
         );
 
         add_settings_section(
@@ -130,7 +130,7 @@ class pdpa_consent_admin_option
 
     public function _section_fields()
     {
-        $this->options = get_option('_option_name');
+        $this->options = get_option('pdpa_option');
 
         if ($this->page_id !== 0) {
             add_settings_field(
@@ -274,56 +274,56 @@ class pdpa_consent_admin_option
     public function is_enable_callback()
     {
         printf(
-            '<input type="checkbox" name="_option_name[is_enable]" id="is_enable" value="1" %s>',
+            '<input type="checkbox" name="pdpa_option[is_enable]" id="is_enable" value="1" %s>',
             $this->options['is_enable'] == true ? 'checked' : ''
         );
     }
     public function allow_user_reset_callback()
     {
         printf(
-            '<input type="checkbox" name="_option_name[allow_user_reset]" id="allow_user_reset" value="1" %s>',
+            '<input type="checkbox" name="pdpa_option[allow_user_reset]" id="allow_user_reset" value="1" %s>',
             $this->options['allow_user_reset'] == true ? 'checked' : ''
         );
     }
     public function allow_user_delete_callback()
     {
         printf(
-            '<input type="checkbox" name="_option_name[allow_user_delete]" id="allow_user_delete" value="1" %s>',
+            '<input type="checkbox" name="pdpa_option[allow_user_delete]" id="allow_user_delete" value="1" %s>',
             $this->options['allow_user_delete'] == true ? 'checked' : ''
         );
     }
     public function allow_user_download_callback()
     {
         printf(
-            '<input type="checkbox" name="_option_name[allow_user_download]" id="allow_user_download" value="1" %s>',
+            '<input type="checkbox" name="pdpa_option[allow_user_download]" id="allow_user_download" value="1" %s>',
             $this->options['allow_user_download'] == true ? 'checked' : ''
         );
     }
     public function is_darkmode_callback()
     {
         printf(
-            '<input type="checkbox" name="_option_name[is_darkmode]" id="is_enable" value="1" %s>',
+            '<input type="checkbox" name="pdpa_option[is_darkmode]" id="is_enable" value="1" %s>',
             $this->options['is_darkmode'] == true ? 'checked' : ''
         );
     }
     public function allow_button_color_callback()
     {
         printf(
-            '<input type="text" name="_option_name[allow_button_color]" id="allow_button_color" value="%s"  class="pdpa-color-picker">',
+            '<input type="text" name="pdpa_option[allow_button_color]" id="allow_button_color" value="%s"  class="pdpa-color-picker">',
             $this->options['allow_button_color']
         );
     }
     public function not_allow_button_color_callback()
     {
         printf(
-            '<input type="text" name="_option_name[not_allow_button_color]" id="not_allow_button_color" value="%s"  class="pdpa-color-picker">',
+            '<input type="text" name="pdpa_option[not_allow_button_color]" id="not_allow_button_color" value="%s"  class="pdpa-color-picker">',
             $this->options['not_allow_button_color']
         );
     }
     public function popup_type_callback()
     {
         ?>
-            <select name="_option_name[popup_type]">
+            <select name="pdpa_option[popup_type]">
                 <option value="top" <?php echo $this->options['popup_type'] == 'top' ? 'selected' : ''; ?>><?php _e('Top bar', 'pdpa-consent'); ?></option>
                 <option value="center" <?php echo $this->options['popup_type'] == 'center' ? 'selected' : ''; ?>><?php _e('Center popup', 'pdpa-consent'); ?></option>
                 <option value="bottom" <?php echo $this->options['popup_type'] == 'bottom' ? 'selected' : ''; ?>><?php _e('Bottom bar', 'pdpa-consent'); ?></option>
@@ -334,7 +334,7 @@ class pdpa_consent_admin_option
     public function popup_message_callback()
     {
         printf(
-            '<textarea class="regular-text" rows=4 name="_option_name[popup_message]" id="popup_message" required>%s</textarea>',
+            '<textarea class="regular-text" rows=4 name="pdpa_option[popup_message]" id="popup_message" required>%s</textarea>',
             isset($this->options['popup_message']) ? esc_html($this->options['popup_message']) : __('Your privacy is important to us. We need your data just for the important process of services. Please allow if you accept the term of privacy comply with PDPA.', 'pdpa-consent')
         );
     }
@@ -342,7 +342,7 @@ class pdpa_consent_admin_option
     public function website_name_callback()
     {
         printf(
-            '<input class="regular-text" type="text" name="_option_name[website_name]" id="website_name" value="%s" placeholder="%s" required>',
+            '<input class="regular-text" type="text" name="pdpa_option[website_name]" id="website_name" value="%s" placeholder="%s" required>',
             isset($this->options['website_name']) ? esc_html($this->options['website_name']) : '',
             __('Your website name or Company name', 'pdpa-consent')
         );
@@ -351,7 +351,7 @@ class pdpa_consent_admin_option
     public function description_callback()
     {
         printf(
-            '<input class="regular-text" type="text" name="_option_name[site_description]" id="site_description" value="%s">',
+            '<input class="regular-text" type="text" name="pdpa_option[site_description]" id="site_description" value="%s">',
             isset($this->options['site_description']) ? esc_html($this->options['site_description']) : ''
         );
     }
@@ -359,7 +359,7 @@ class pdpa_consent_admin_option
     public function list_data_callback()
     {
         printf(
-            '<textarea class="regular-text" rows=5 name="_option_name[list_data]" id="list_data" placeholder="%s" required>%s</textarea>',
+            '<textarea class="regular-text" rows=5 name="pdpa_option[list_data]" id="list_data" placeholder="%s" required>%s</textarea>',
             __("Fullname\nBirthday\nEtc."),
             isset($this->options['list_data']) ? esc_html($this->options['list_data']) : ''
         );
@@ -368,7 +368,7 @@ class pdpa_consent_admin_option
     public function address_callback()
     {
         printf(
-            '<input class="regular-text" type="text" name="_option_name[site_address]" id="site_address" value="%s" required>',
+            '<input class="regular-text" type="text" name="pdpa_option[site_address]" id="site_address" value="%s" required>',
             isset($this->options['site_address']) ? esc_html($this->options['site_address']) : ''
         );
     }
@@ -376,7 +376,7 @@ class pdpa_consent_admin_option
     public function contact_callback()
     {
         printf(
-            '<input class="regular-text" type="text" name="_option_name[site_contact]" id="site_contact" value="%s" placeholder="%s">',
+            '<input class="regular-text" type="text" name="pdpa_option[site_contact]" id="site_contact" value="%s" placeholder="%s">',
             isset($this->options['site_contact']) ? esc_html($this->options['site_contact']) : '',
             __("Such as John Doe (081-111-1111)", 'pdpa-consent')
         );
@@ -385,7 +385,7 @@ class pdpa_consent_admin_option
     public function email_callback()
     {
         printf(
-            '<input class="regular-text" type="text" name="_option_name[site_email]" id="site_description" value="%s" required>',
+            '<input class="regular-text" type="text" name="pdpa_option[site_email]" id="site_description" value="%s" required>',
             isset($this->options['site_email']) ? sanitize_email($this->options['site_email']) : ''
         );
     }

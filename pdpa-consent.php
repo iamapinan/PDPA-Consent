@@ -5,7 +5,7 @@
 /*
 Plugin Name: PDPA Consent
 Description: PDPA Consent allows you to notify to the user to accept privacy terms. Comply with Thailand PDPA law.
-Version: 1.0.3
+Version: 1.0.4
 Author: Apinan Woratrakun, Aeknarin Sirisub
 Author URI: https://www.ioblog.me
 Plugin URI: https://github.com/iamapinan/PDPA-Consent
@@ -50,7 +50,7 @@ class pdpa_Consent
         $this->locale = is_admin() && function_exists('get_user_locale') ? get_user_locale() : get_locale();
         $this->cookie_domain = $_SERVER['SERVER_NAME'];
         $this->cookie_expire = strtotime("next Month");
-        $this->options = get_option('_option_name');
+        $this->options = get_option('pdpa_option');
 
         $this->initial();
         new pdpa_consent_admin_option;
