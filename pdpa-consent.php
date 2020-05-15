@@ -48,7 +48,7 @@ class pdpa_Consent
     {
         $this->plugin_info = get_plugin_data(PDPA_PATH . 'pdpa-consent.php');
         $this->locale = is_admin() && function_exists('get_user_locale') ? get_user_locale() : get_locale();
-        $this->cookie_domain = $_SERVER['SERVER_NAME'];
+        $this->cookie_domain = parse_url(site_url())['host'];
         $this->cookie_expire = strtotime("next Month");
         $this->options = get_option('pdpa_option');
 
@@ -119,10 +119,10 @@ class pdpa_Consent
 
     public function pdpa_enqueue_scripts()
     {
-        wp_enqueue_style('pdpa-consent', plugins_url('assets/pdpa-consent.min.css', __FILE__), array(), $this->plugin_info['Version']);
+        wp_enqueue_style('pdpa-consent', plugins_url('assets/pdpa-consent.css', __FILE__), array(), $this->plugin_info['Version']);
         
         // Register the script
-        wp_register_script('pdpa_ajax_handle', plugins_url('assets/pdpa-consent.min.js', __FILE__), array(), $this->plugin_info['Version']);
+        wp_register_script('pdpa_ajax_handle', plugins_url('assets/pdpa-consent.js', __FILE__), array(), $this->plugin_info['Version']);
         
         // Localize the script with new data
         $ajax_array = array(
