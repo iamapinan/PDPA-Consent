@@ -95,9 +95,9 @@ No questions yet.
 
 = 1.0.8 =
 * Fixed WP Super Cache issue.
-* Fixed consent not display on some website.
-* Add template for user privacy & consent screen.
-* Improve performance issue.
+* Fixed consent does not correctly display on some websites.
+* Add a template for user privacy & consent screen.
+* Improve performance issues.
 
 = 1.0.7 = 
 * Fixed guest cookie
