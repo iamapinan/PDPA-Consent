@@ -2,10 +2,10 @@
 Contributors: iamapinan
 Donate link: https://paypal.me/apinu
 Tags: pdpa, gdpr, pdpa-consent, cookie, notice, notification, notify, cookie, cookie law, privacy, policy, consent, law, Thailand, compliance, consent
-Requires at least: 4.3
+Requires at least: 5.2
 Requires PHP: 5.4.6
 Tested up to: 5.4.1
-Stable tag: 1.0.7
+Stable tag: 1.0.8
 License: GNU 3.0
 License URI: https://opensource.org/licenses/lgpl-3.0.html
 
@@ -92,6 +92,12 @@ No questions yet.
 3. screenshot-3.png
 
 == Changelog ==
+
+= 1.0.8 =
+* Fixed WP Super Cache issue.
+* Fixed consent not display on some website.
+* Add template for user privacy & consent screen.
+* Improve performance issue.
 
 = 1.0.7 = 
 * Fixed guest cookie
