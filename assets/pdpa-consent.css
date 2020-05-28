@@ -49,12 +49,12 @@
     font-size: 14px;
 }
 
-.pdpa-consent-allow-button,
-.pdpa-consent-not-allow-button {
+.pdpa-consent-allow-button, .pdpa-consent-not-allow-button {
     padding: 8px 15px;
-    font-size: 14px;
-    border-radius: 15px;
-    margin-inline: 5px;
+    font-size: 10pt;
+    border-radius: 18pt;
+    border: none;
+    line-height: 1;
 }
 
 .pdpa-consent-allow-button:hover,
