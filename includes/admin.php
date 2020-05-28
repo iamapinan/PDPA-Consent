@@ -107,6 +107,10 @@ class pdpa_consent_admin_option
             .admin-page form th {
                 text-align: right;
             }
+            .admin-page form h2 {
+                font-size: 18pt;
+                margin-top: 10px;
+            }
         </style>
         <?php settings_errors(); ?>
         <div class="admin-page">
@@ -306,8 +310,7 @@ class pdpa_consent_admin_option
     public function regenerate_callback()
     {
         printf(
-            '<input type="checkbox" name="pdpa_option[regenerate]" id="is_enable" value="1" %s>',
-            !isset($this->options['regenerate']) ? 'checked' : ''
+            '<input type="checkbox" name="pdpa_option[regenerate]" id="is_enable" value="1">'
         );
     }
     public function allow_user_reset_callback()
@@ -429,7 +432,7 @@ class pdpa_consent_admin_option
         .pdpa-admin-table {
             border: 1px solid #eee;
             padding: 0px;
-            background-color: #fff;
+            background-color: #fdf8ea;
         }
         .pdpa-admin-table tr td:first-child {
             color: #a23a08;
