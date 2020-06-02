@@ -1,4 +1,4 @@
-![assets/pdpa-consent-banner.png](assets/pdpa-consent-banner.png)  
+[![CodeFactor](https://www.codefactor.io/repository/github/iamapinan/pdpa-consent/badge)](https://www.codefactor.io/repository/github/iamapinan/pdpa-consent)
 
 This WordPress plugin help you to generate Thailand PDPA consent terms page and consent notification popup. 
 You can edit the term page and publish on your website with elegant and powerful solution. !!! No jquery need at all.
