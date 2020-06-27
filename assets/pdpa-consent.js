@@ -4,7 +4,7 @@
  */
 
 document.addEventListener("DOMContentLoaded", function () {
-    if (pdpa_ajax.consent_enable === "yes") {
+    if (pdpa_ajax.consent_enable === "yes" && pdpa_get_cookie() == null) {
         document.getElementById("PDPANotAllow").addEventListener("click", function() {
             pdpa_consent_call('pdpa-not-allow');
             document.getElementById("pdpa_screen").style.display = 'none'
@@ -15,7 +15,6 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 })
-
 
 const pdpa_consent_call = (action_require) => {
     var pdpa_request_data = new FormData();
@@ -30,7 +29,7 @@ const pdpa_consent_call = (action_require) => {
     })
     .then(function (response) {
         //handle success
-        cookie_process(response.data);
+        pdpa_cookie_process(response.data);
     })
     .catch(function (response) {
         //handle error
@@ -38,7 +37,7 @@ const pdpa_consent_call = (action_require) => {
     });
 }
 
-const cookie_process = (d) => {
+const pdpa_cookie_process = (d) => {
     var cookie_string = '';
     if (d.type == 'user_allow') {
         cookie_string = d.cookie_name + "=1; expires=" + d.cookie_expire + "; domain=" + d.cookie_domain + "; path=/";
@@ -50,10 +49,11 @@ const cookie_process = (d) => {
     } else {
         console.log("error.", d)
     }
+    console.log(cookie_string)
     document.cookie = cookie_string;
 }
 
-const deleteAllCookies = () => {
+const pdpa_delete_all_cookie = () => {
     var cookies = document.cookie.split(";");
 
     for (var i = 0; i < cookies.length; i++) {
@@ -62,4 +62,17 @@ const deleteAllCookies = () => {
         var name = eqPos > -1 ? cookie.substr(0, eqPos) : cookie;
         document.cookie = name + "=;expires=Thu, 01 Jan 1970 00:00:00 GMT";
     }
+}
+
+function pdpa_get_cookie() {
+    var cookieArr = document.cookie.split(";");
+    
+    for(var i = 0; i < cookieArr.length; i++) {
+        var cookiePair = cookieArr[i].split("=");
+        if('pdpa_accepted' == cookiePair[0].trim()) {
+            return decodeURIComponent(cookiePair[1]);
+        }
+    }
+
+    return null;
 }

@@ -10,7 +10,7 @@ if (! defined('ABSPATH')) {
     exit;
 }
 
-class pdpa_consent_admin_option
+class PDPA_Admin
 {
     private $plugin_info = array();
     private $capability = 'manage_options';
@@ -96,24 +96,17 @@ class pdpa_consent_admin_option
             $this->generate_post_from_template();
         } ?>
         <style>
-            .admin-page form {
-                padding: 15px;
-                background-color: #fff;
-                margin: 20px 20px;
-                border: 1px solid #e4e4e4;
-                border-radius: 4px;
-                box-shadow: 2px 2px 4px rgba(3, 3, 3, 0.03);
+            .wrap form {
+                margin-top: 20px;
             }
-            .admin-page form th {
-                text-align: right;
-            }
-            .admin-page form h2 {
-                font-size: 18pt;
-                margin-top: 10px;
+            .wrap form h2 {
+                border-bottom: 1px solid #ccc;
+                padding-bottom: 15px;
             }
         </style>
         <?php settings_errors(); ?>
-        <div class="admin-page">
+        <div class="wrap">
+            <h2><?php _e('PDPA Consent', 'pdpa-consent');?></h2>
             <form method="post" action="options.php" id="pdpaConsent">
             <?php
                 settings_fields('_pdpa_setting_group');
@@ -369,7 +362,7 @@ class pdpa_consent_admin_option
     public function popup_message_callback()
     {
         printf(
-            '<textarea class="regular-text" rows=4 name="pdpa_option[popup_message]" id="popup_message" required>%s</textarea>',
+            '<textarea class="large-text" rows=4 name="pdpa_option[popup_message]" id="popup_message" required>%s</textarea>',
             isset($this->options['popup_message']) ? esc_html($this->options['popup_message']) : __('Your privacy is important to us. We need your data just for the important process of services. Please allow if you accept the term of privacy comply with PDPA.', 'pdpa-consent')
         );
     }
@@ -386,7 +379,7 @@ class pdpa_consent_admin_option
     public function description_callback()
     {
         printf(
-            '<input class="regular-text" type="text" name="pdpa_option[site_description]" id="site_description" value="%s">',
+            '<input class="large-text" type="text" name="pdpa_option[site_description]" id="site_description" value="%s">',
             isset($this->options['site_description']) ? esc_html($this->options['site_description']) : ''
         );
     }
@@ -394,7 +387,7 @@ class pdpa_consent_admin_option
     public function list_data_callback()
     {
         printf(
-            '<textarea class="regular-text" rows=5 name="pdpa_option[list_data]" id="list_data" placeholder="%s" required>%s</textarea>',
+            '<textarea class="large-text" rows=5 name="pdpa_option[list_data]" id="list_data" placeholder="%s" required>%s</textarea>',
             __("Fullname\nBirthday\nEtc."),
             isset($this->options['list_data']) ? esc_html($this->options['list_data']) : ''
         );
@@ -403,7 +396,7 @@ class pdpa_consent_admin_option
     public function address_callback()
     {
         printf(
-            '<input class="regular-text" type="text" name="pdpa_option[site_address]" id="site_address" value="%s" required>',
+            '<input class="large-text" type="text" name="pdpa_option[site_address]" id="site_address" value="%s" required>',
             isset($this->options['site_address']) ? esc_html($this->options['site_address']) : ''
         );
     }

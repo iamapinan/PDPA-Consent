@@ -17,9 +17,14 @@
             <button id="pdpa-status-reset"><?php _e('Reset consent', 'pdpa-consent');?></button>
             <button><?php _e('Delete account', 'pdpa-consent');?></button>
         </div>
-        <pre>
-            <?php print_r($user_info->data);?>
-        </pre>
+        <table class="user_data">
+            <?php foreach($user_info->data as $user_key => $user_data):?>
+            <tr>
+                <th width=220><?php echo $user_key;?></th>
+                <td><?php echo json_encode($user_data);?></td>
+            </tr>
+            <?php endforeach;?>
+        </table>
     <?php else: ?>
         <div class="user_toolbar">
             <button id="pdpa-status-reset"><?php _e('Reset consent', 'pdpa-consent');?></button>
