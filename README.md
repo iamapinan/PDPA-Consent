@@ -18,7 +18,7 @@ You can edit the term page and publish on your website with elegant and powerful
 
 
 ### Download new release
--> [Release page is here.](https://github.com/iamapinan/PDPA-Consent/releases)
+[Release page is here.](https://github.com/iamapinan/PDPA-Consent/releases)
 
 ### To install. 
 1. Install PDPA Consent via the WordPress.org plugin directory, or by uploading the files to your server
