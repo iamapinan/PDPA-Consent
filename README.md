@@ -68,6 +68,9 @@ You can edit the term page and publish on your website with elegant and powerful
 * WordPress Bangkok friends
 
 ### Changelogs
+### 1.1.0
+* Fix error missing class
+
 ### 1.0.9
 * Add wp_footer hook support
 

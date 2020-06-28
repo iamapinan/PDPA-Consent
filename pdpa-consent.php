@@ -5,7 +5,7 @@
 /*
 Plugin Name: PDPA Consent
 Description: PDPA Consent allows you to notify to the user to accept privacy terms. Comply with Thailand PDPA law.
-Version: 1.0.9
+Version: 1.1.0
 Author: Apinan Woratrakun
 Author URI: https://www.facebook.com/9apinan
 Plugin URI: https://github.com/iamapinan/PDPA-Consent
@@ -55,22 +55,20 @@ class PDPA_Consent
 
         $this->init();
         new PDPA_Admin;
-        new PDPA_User;
+        // new PDPA_User;
     }
 
     public function init()
     {
         register_activation_hook(__FILE__, array( $this, 'plugin_activate' ));
-
         add_action('admin_init', array( $this, 'load_plugin' ));
         add_filter('body_class', array( $this, 'change_body_class' ));
         // Add consent html to frontend
         if (function_exists('wp_body_open')) {
             add_action('wp_body_open', array( $this, 'add_consent'), 20);
         } else {
-            add_action('wp_footer', array( $this, 'add_consent'), 20);
+            add_action('wp_footer', array( $this, 'add_consent'));
         }
-
         // Ajax request for logged in user
         add_action('wp_ajax_pdpa_action', array( $this, 'pdpa_ajax_do' ));
         // Ajax request for guest user

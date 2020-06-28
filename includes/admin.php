@@ -46,8 +46,9 @@ class PDPA_Admin
     {
         $this->options = get_option('pdpa_option');
 
-        if(!$this->options['regenerate'])
+        if (!$this->options['regenerate']) {
             return false;
+        }
 
         if (file_exists(PDPA_PATH . 'templates/' . $this->locale . '.html')) {
             $content = $this->serialize_html(file_get_contents(PDPA_PATH . 'templates/'. $this->locale .'.html'), $this->options);
@@ -106,12 +107,11 @@ class PDPA_Admin
         </style>
         <?php settings_errors(); ?>
         <div class="wrap">
-            <h2><?php _e('PDPA Consent', 'pdpa-consent');?></h2>
+            <h2><?php _e('PDPA Consent', 'pdpa-consent'); ?></h2>
             <form method="post" action="options.php" id="pdpaConsent">
             <?php
                 settings_fields('_pdpa_setting_group');
-                do_settings_sections('settings'); 
-            ?>
+        do_settings_sections('settings'); ?>
             <table class="form-table">
                 <tr>
                     <th scope='row'></th>
