@@ -5,7 +5,7 @@
 /*
 Plugin Name: PDPA Consent
 Description: PDPA Consent allows you to notify to the user to accept privacy terms. Comply with Thailand PDPA law.
-Version: 1.1.0
+Version: 1.1.1
 Author: Apinan Woratrakun
 Author URI: https://www.facebook.com/9apinan
 Plugin URI: https://github.com/iamapinan/PDPA-Consent
@@ -27,10 +27,7 @@ if (!function_exists('get_plugin_data')) {
 }
 
 define('PDPA_PATH', plugin_dir_path(__FILE__));
-// Includes
-include_once(PDPA_PATH . 'includes/admin.php');
-include_once(PDPA_PATH . 'includes/template.php');
-include_once(PDPA_PATH . 'includes/user.php');
+
 
 class PDPA_Consent
 {
@@ -53,8 +50,19 @@ class PDPA_Consent
         $this->cookie_expire = strtotime("next Month");
         $this->options = get_option('pdpa_option');
 
+        $this->includes();
         $this->init();
-        new PDPA_Admin;
+    }
+
+    private function includes () {
+        // Includes
+        if (is_admin()) {
+            require_once(PDPA_PATH . 'includes/admin.php');
+            new PDPA_Admin;
+        }
+
+        require_once(PDPA_PATH . 'includes/template.php');
+        // require_once(PDPA_PATH . 'includes/user.php');
         // new PDPA_User;
     }
 
@@ -65,7 +73,7 @@ class PDPA_Consent
         add_filter('body_class', array( $this, 'change_body_class' ));
         // Add consent html to frontend
         if (function_exists('wp_body_open')) {
-            add_action('wp_body_open', array( $this, 'add_consent'), 20);
+            add_action('wp_body_open', array( $this, 'add_consent'));
         } else {
             add_action('wp_footer', array( $this, 'add_consent'));
         }
@@ -78,7 +86,7 @@ class PDPA_Consent
         add_action('wp_enqueue_scripts', array( $this, 'pdpa_enqueue_scripts' ));
         // Add functions to users
         add_filter('manage_users_columns', array( $this, 'pdpa_add_user_columns' ));
-        add_filter('manage_users_custom_column', array( $this, 'pdpa_add_user_column_data' ), 10, 3);
+        add_filter('manage_users_custom_column', array( $this, 'pdpa_add_user_column_data' ), 99, 3);
     }
 
     public function plugin_activate()
@@ -141,11 +149,11 @@ class PDPA_Consent
 
     public function pdpa_enqueue_scripts()
     {
-        wp_enqueue_style($this->plugin_info['TextDomain'], plugins_url('assets/pdpa-consent.css', __FILE__), array(), $this->plugin_info['Version']);
+        wp_enqueue_style($this->plugin_info['TextDomain'], plugins_url('assets/pdpa-consent.css', __FILE__), array(), $this->plugin_info['Version'], 'all' );
         
         // Register the script
-        wp_enqueue_script($this->plugin_info['TextDomain'], plugins_url('assets/axios.min.js', __FILE__), array(), $this->plugin_info['Version'], true);
-        wp_register_script('pdpa-script-base', plugins_url('assets/pdpa-consent.js', __FILE__), array(), $this->plugin_info['Version'], true);
+        wp_enqueue_script($this->plugin_info['TextDomain'], plugins_url('assets/axios.min.js', __FILE__), array(), $this->plugin_info['Version'], true );
+        wp_register_script('pdpa-script-base', plugins_url('assets/pdpa-consent.js', __FILE__), array(), $this->plugin_info['Version'], true );
         
         // Localize the script with new data
         $ajax_array = array(
@@ -333,4 +341,12 @@ class PDPA_Consent
 /**
  * Initialize PDPA Consent.
  */
-add_action('init', new PDPA_Consent);
+function pdpa_load () {
+    new PDPA_Consent;
+}
+
+if ( function_exists( 'is_multisite' ) && is_multisite() ) {
+	add_action('plugins_loaded', 'pdpa_load' );
+} else {
+	pdpa_load();
+}

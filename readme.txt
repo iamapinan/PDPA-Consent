@@ -92,6 +92,10 @@ No questions yet.
 3. screenshot-3.png
 
 == Changelog ==
+
+= 1.1.1 =
+* Improved performance
+
 = 1.1.0 =
 * Fix error missing class
 
