@@ -28,6 +28,7 @@ class PDPA_Admin
         add_action('admin_menu', array($this, 'pdpa_admin_menu'));
         add_action('admin_init', array($this, 'admin_option_setup'));
         add_action('admin_enqueue_scripts', array( $this, 'pdpa_enqueue_color_picker' ));
+        add_action('admin_enqueue_scripts', array( $this, 'pdpa_enqueue_style' ));
     }
 
     private function serialize_html($html, $settings = [ 'website_name' => '', 'site_description' => '', 'list_data' => '', 'site_address' => '', 'site_contact' => '', 'site_email' => '' ])
@@ -46,8 +47,9 @@ class PDPA_Admin
     {
         $this->options = get_option('pdpa_option');
 
-        if(!$this->options['regenerate'])
+        if (!isset($this->options['regenerate'])) {
             return false;
+        }
 
         if (file_exists(PDPA_PATH . 'templates/' . $this->locale . '.html')) {
             $content = $this->serialize_html(file_get_contents(PDPA_PATH . 'templates/'. $this->locale .'.html'), $this->options);
@@ -69,7 +71,7 @@ class PDPA_Admin
         $this->options['regenerate'] = 0;
         update_option('pdpa_option', $this->options);
         add_option('pdpa-consent-page-id', $page_id);
-        add_action('admin_notices', array( $this, 'page_generate_notice' ), 20);
+        add_action('admin_notices', array( $this, 'page_generate_notice' ));
     }
 
     public function page_generate_notice()
@@ -87,7 +89,12 @@ class PDPA_Admin
     public function pdpa_enqueue_color_picker($hook_suffix)
     {
         wp_enqueue_style('wp-color-picker');
-        wp_enqueue_script('pdpa-script', plugins_url('pdpa-consent/assets/pdpa-admin-script.js'), array( 'wp-color-picker' ), false, true);
+        wp_enqueue_script('pdpa-script', plugins_url('pdpa-consent/assets/pdpa-admin-script.js'), array( 'wp-color-picker' ), $this->plugin_info['Version'], true );
+    }
+
+    public function pdpa_enqueue_style()
+    {
+        wp_enqueue_style('pdpa-style', plugins_url('pdpa-consent/assets/pdpa-admin-style.css'), array(), $this->plugin_info['Version'], 'all' );
     }
 
     public function pdpa_admin_option()
@@ -95,18 +102,9 @@ class PDPA_Admin
         if (isset($_POST)) {
             $this->generate_post_from_template();
         } ?>
-        <style>
-            .wrap form {
-                margin-top: 20px;
-            }
-            .wrap form h2 {
-                border-bottom: 1px solid #ccc;
-                padding-bottom: 15px;
-            }
-        </style>
         <?php settings_errors(); ?>
         <div class="wrap">
-            <h2><?php _e('PDPA Consent', 'pdpa-consent');?></h2>
+            <h2><?php _e('PDPA Consent', 'pdpa-consent'); ?></h2>
             <form method="post" action="options.php" id="pdpaConsent">
             <?php
                 settings_fields('_pdpa_setting_group');
@@ -174,30 +172,28 @@ class PDPA_Admin
         /***
          * Future functions
          *
-
-        add_settings_field(
-            'allow_user_reset', // id
-            __( 'Allow user to reset consent','pdpa-consent' ), // title
-            array( $this, 'allow_user_reset_callback' ), // callback
-            'settings', // page
-            '_pdpa_setting_section' // section
-        );
-        add_settings_field(
-            'allow_user_delete', // id
-            __( 'Allow user to delete account','pdpa-consent' ), // title
-            array( $this, 'allow_user_delete_callback' ), // callback
-            'settings', // page
-            '_pdpa_setting_section' // section
-        );
-        add_settings_field(
-            'allow_user_download', // id
-            __( 'Allow user to download profile','pdpa-consent' ), // title
-            array( $this, 'allow_user_download_callback' ), // callback
-            'settings', // page
-            '_pdpa_setting_section' // section
-        );
         */
-        
+        // add_settings_field(
+        //     'allow_user_reset', // id
+        //     __( 'Allow user to reset consent','pdpa-consent' ), // title
+        //     array( $this, 'allow_user_reset_callback' ), // callback
+        //     'settings', // page
+        //     '_pdpa_setting_section' // section
+        // );
+        // add_settings_field(
+        //     'allow_user_delete', // id
+        //     __( 'Allow user to delete account','pdpa-consent' ), // title
+        //     array( $this, 'allow_user_delete_callback' ), // callback
+        //     'settings', // page
+        //     '_pdpa_setting_section' // section
+        // );
+        // add_settings_field(
+        //     'allow_user_download', // id
+        //     __( 'Allow user to download profile','pdpa-consent' ), // title
+        //     array( $this, 'allow_user_download_callback' ), // callback
+        //     'settings', // page
+        //     '_pdpa_setting_section' // section
+        // );
         add_settings_field(
             'is_darkmode', // id
             __('Use dark theme', 'pdpa-consent'), // title
@@ -283,55 +279,71 @@ class PDPA_Admin
             '_pdpa_setting_section' // section
         );
     }
-
     public function url_callback()
     {
         printf(
-            '<a href="/?p=%s">%s</a>&nbsp;<a href="%s"><span class="dashicons dashicons-edit"></span></a>',
+            '<a href="/?p=%s"><span class="dashicons dashicons-external"></span></a>&nbsp;<a href="%s"><span class="dashicons dashicons-edit"></span></a>',
             $this->page_id,
-            esc_url(get_site_url().'/?p='.$this->page_id),
             esc_url(get_admin_url().'post.php?post='.get_option('pdpa-consent-page-id').'&action=edit')
         );
     }
     public function is_enable_callback()
     {
         printf(
-            '<input type="checkbox" name="pdpa_option[is_enable]" id="is_enable" value="1" %s>',
-            $this->options['is_enable'] == true ? 'checked' : ''
+            '<label class="switch">
+                <input type="checkbox" name="pdpa_option[is_enable]" id="is_enable" value="1" %s>
+                <span class="slider round"></span>
+            </label>',
+            isset($this->options['is_enable']) ? 'checked' : ''
         );
     }
     public function regenerate_callback()
     {
         printf(
-            '<input type="checkbox" name="pdpa_option[regenerate]" id="is_enable" value="1">'
+            '<label class="switch">
+                <input type="checkbox" name="pdpa_option[regenerate]" id="regenerate" value="1">
+                <span class="slider round"></span>
+            </label>'
         );
     }
     public function allow_user_reset_callback()
     {
         printf(
-            '<input type="checkbox" name="pdpa_option[allow_user_reset]" id="allow_user_reset" value="1" %s>',
-            $this->options['allow_user_reset'] == true ? 'checked' : ''
+            '<label class="switch">
+                <input type="checkbox" name="pdpa_option[allow_user_reset]" id="allow_user_reset" value="1" %s>
+                <span class="slider round"></span>
+            </label>',
+            isset($this->options['allow_user_reset']) ? 'checked' : ''
         );
     }
     public function allow_user_delete_callback()
     {
         printf(
-            '<input type="checkbox" name="pdpa_option[allow_user_delete]" id="allow_user_delete" value="1" %s>',
-            $this->options['allow_user_delete'] == true ? 'checked' : ''
+            '<label class="switch">
+                <input type="checkbox" name="pdpa_option[allow_user_delete]" id="allow_user_delete" value="1" %s>
+                <span class="slider round"></span>
+            </label>',
+            isset($this->options['allow_user_delete']) ? 'checked' : ''
         );
     }
     public function allow_user_download_callback()
     {
         printf(
-            '<input type="checkbox" name="pdpa_option[allow_user_download]" id="allow_user_download" value="1" %s>',
-            $this->options['allow_user_download'] == true ? 'checked' : ''
+            '<label class="switch">
+                <input type="checkbox" name="pdpa_option[allow_user_download]" id="allow_user_download" value="1" %s>
+                <span class="slider round"></span>
+            </label>',
+            isset($this->options['allow_user_download']) ? 'checked' : ''
         );
     }
     public function is_darkmode_callback()
     {
         printf(
-            '<input type="checkbox" name="pdpa_option[is_darkmode]" id="is_enable" value="1" %s>',
-            $this->options['is_darkmode'] == true ? 'checked' : ''
+            '<label class="switch">
+                <input type="checkbox" name="pdpa_option[is_darkmode]" id="is_darkmode" value="1" %s>
+                <span class="slider round"></span>
+            </label>',
+            isset($this->options['is_darkmode']) ? 'checked' : ''
         );
     }
     public function allow_button_color_callback()
@@ -413,7 +425,7 @@ class PDPA_Admin
     public function email_callback()
     {
         printf(
-            '<input class="regular-text" type="text" name="pdpa_option[site_email]" id="site_description" value="%s" required>',
+            '<input class="regular-text" type="text" name="pdpa_option[site_email]" id="site_email" value="%s" required>',
             isset($this->options['site_email']) ? sanitize_email($this->options['site_email']) : ''
         );
     }
@@ -421,20 +433,6 @@ class PDPA_Admin
     public function custom_css_callback()
     {
         ?>
-        <style>
-        .pdpa-admin-table {
-            border: 1px solid #eee;
-            padding: 0px;
-            background-color: #fdf8ea;
-        }
-        .pdpa-admin-table tr td:first-child {
-            color: #a23a08;
-        }
-        .pdpa-admin-table td {
-            padding: 8px 10px;
-            border-bottom: 1px solid #eee;
-        }
-        </style>
         <table class='pdpa-admin-table'>
             <tr>
                 <td>.pdpa-consent-wrap {}</td>

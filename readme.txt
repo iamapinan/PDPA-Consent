@@ -5,7 +5,7 @@ Tags: pdpa, gdpr, pdpa-consent, cookie, notice, notification, notify, cookie, co
 Requires at least: 5.2
 Requires PHP: 5.4.6
 Tested up to: 5.4.1
-Stable tag: 1.0.9
+Stable tag: 1.1.0
 License: GNU 3.0
 License URI: https://opensource.org/licenses/lgpl-3.0.html
 
@@ -92,6 +92,13 @@ No questions yet.
 3. screenshot-3.png
 
 == Changelog ==
+
+= 1.1.1 =
+* Improved performance
+
+= 1.1.0 =
+* Fix error missing class
+
 = 1.0.9 =
 * Add wp_footer hook support
 
