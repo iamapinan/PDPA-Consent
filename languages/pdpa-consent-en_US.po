@@ -1,0 +1,251 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: PDPA Consent\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-05-15 07:23+0000\n"
+"PO-Revision-Date: 2020-05-15 07:24+0000\n"
+"Last-Translator: \n"
+"Language-Team: English (United States)\n"
+"Language: en_US\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Loco https://localise.biz/\n"
+"X-Loco-Version: 2.3.4; wp-5.4.1"
+
+#: pdpa-consent.php:94
+msgid ""
+"Please setup PDPA Consent setting in <a href=\"/wp-admin/admin.php?page=pdpa-"
+"consent\">plugin page.</a>"
+msgstr ""
+"Please setup PDPA Consent setting in <a href=\"/wp-admin/admin.php?page=pdpa-"
+"consent\">plugin page.</a>"
+
+#: pdpa-consent.php:102
+msgid "User Privacy"
+msgstr "User Privacy"
+
+#: pdpa-consent.php:114
+msgid "User privacy page is created"
+msgstr "User privacy page is created"
+
+#: pdpa-consent.php:115
+msgid "View page"
+msgstr "View page"
+
+#: pdpa-consent.php:263
+msgid "Read term and privacy policy"
+msgstr "Read term and privacy policy"
+
+#: pdpa-consent.php:273 pdpa-consent.php:303 includes/user_template.php:7
+msgid "Allow"
+msgstr "Allow"
+
+#: pdpa-consent.php:281
+msgid "Not Allow"
+msgstr "Not Allow"
+
+#: pdpa-consent.php:291
+msgid "PDPA Allow"
+msgstr "PDPA Allow"
+
+#: pdpa-consent.php:301
+msgid "Waiting for consent."
+msgstr "Waiting for consent."
+
+#: pdpa-consent.php:301
+msgid "Waiting."
+msgstr "Waiting."
+
+#: pdpa-consent.php:303 includes/user_template.php:7
+#: includes/user_template.php:7
+msgid "Not allow."
+msgstr "Not allow."
+
+#: pdpa-consent.php:303 includes/user_template.php:7
+msgid "Allow."
+msgstr "Allow."
+
+#: includes/user_template.php:10
+msgid "Timestamp"
+msgstr "Timestamp"
+
+#: includes/user_template.php:15
+msgid "Download profile data"
+msgstr "Download profile data"
+
+#: includes/user_template.php:16
+msgid "Reset consent"
+msgstr "Reset consent"
+
+#: includes/user_template.php:17
+msgid "Delete account"
+msgstr "Delete account"
+
+#: includes/admin.php:27
+msgid "pdpa-term"
+msgstr "pdpa-term"
+
+#: includes/admin.php:60
+msgid "Thailand’s Personal Data Protection Act (PDPA)"
+msgstr "Thailand’s Personal Data Protection Act (PDPA)"
+
+#: includes/admin.php:78
+msgid "PDPA Consent term page is regenerated."
+msgstr "PDPA Consent term page is regenerated."
+
+#. Name of the plugin
+#: includes/admin.php:84
+msgid "PDPA Consent"
+msgstr "PDPA Consent"
+
+#. id
+#: includes/admin.php:139
+msgid "PDPA Consent setup"
+msgstr "PDPA Consent setup"
+
+#. id
+#: includes/admin.php:152
+msgid "Privacy page"
+msgstr "Privacy page"
+
+#. id
+#: includes/admin.php:161
+msgid "Regenerate the privacy page."
+msgstr "Regenerate the privacy page."
+
+#. id
+#: includes/admin.php:169
+msgid "Enable consent noti"
+msgstr "Enable consent noti"
+
+#. id
+#: includes/admin.php:206
+msgid "Use dark theme"
+msgstr "Use dark theme"
+
+#. id
+#: includes/admin.php:213
+msgid "Allow button color"
+msgstr "Allow button color"
+
+#. id
+#: includes/admin.php:220
+msgid "Not allow button color"
+msgstr "Not allow button color"
+
+#. id
+#: includes/admin.php:227
+msgid "Notification popup type"
+msgstr "Notification popup type"
+
+#. id
+#: includes/admin.php:234
+msgid "Popup message"
+msgstr "Popup message"
+
+#. id
+#: includes/admin.php:241
+msgid "Website name (*)"
+msgstr "Website name (*)"
+
+#. id
+#: includes/admin.php:248
+msgid "Web description"
+msgstr "Web description"
+
+#. id
+#: includes/admin.php:255
+msgid "List of user data (*)<br>(one data set per line)"
+msgstr "List of user data (*)<br>(one data set per line)"
+
+#. id
+#: includes/admin.php:262
+msgid "Address (*)"
+msgstr "Address (*)"
+
+#. id
+#: includes/admin.php:269
+msgid "Contact"
+msgstr "Contact"
+
+#. id
+#: includes/admin.php:276
+msgid "Email (*)"
+msgstr "Email (*)"
+
+#. id
+#: includes/admin.php:283
+msgid "CSS Class"
+msgstr "CSS Class"
+
+#: includes/admin.php:359
+msgid "Top bar"
+msgstr "Top bar"
+
+#: includes/admin.php:360
+msgid "Center popup"
+msgstr "Center popup"
+
+#: includes/admin.php:361
+msgid "Bottom bar"
+msgstr "Bottom bar"
+
+#: includes/admin.php:370
+msgid ""
+"Your privacy is important to us. We need your data just for the important "
+"process of services. Please allow if you accept the term of privacy comply "
+"with PDPA."
+msgstr ""
+"Your privacy is important to us. We need your data just for the important "
+"process of services. Please allow if you accept the term of privacy comply "
+"with PDPA."
+
+#: includes/admin.php:379
+msgid "Your website name or Company name"
+msgstr "Your website name or Company name"
+
+#: includes/admin.php:413
+msgid "Such as John Doe (081-111-1111)"
+msgstr "Such as John Doe (081-111-1111)"
+
+#: includes/admin.php:445
+msgid "For wrapper div element"
+msgstr "For wrapper div element"
+
+#: includes/admin.php:449
+msgid "Make the box place to top bar"
+msgstr "Make the box place to top bar"
+
+#: includes/admin.php:453
+msgid "Make the box place center the screen"
+msgstr "Make the box place center the screen"
+
+#: includes/admin.php:465
+msgid "Style for not allow button"
+msgstr "Style for not allow button"
+
+#: includes/admin.php:469
+msgid "Style for allow button"
+msgstr "Style for allow button"
+
+#. Description of the plugin
+msgid ""
+"PDPA Consent allows you to notify to the user to accept privacy terms. "
+"Comply with Thailand PDPA law."
+msgstr ""
+"PDPA Consent allows you to notify to the user to accept privacy terms. "
+"Comply with Thailand PDPA law."
+
+#. URI of the plugin
+msgid "https://github.com/iamapinan/PDPA-Consent"
+msgstr "https://github.com/iamapinan/PDPA-Consent"
+
+#. Author of the plugin
+msgid "Apinan Woratrakun, Aeknarin Sirisub"
+msgstr "Apinan Woratrakun, Aeknarin Sirisub"
+
+#. Author URI of the plugin
+msgid "https://www.ioblog.me"
+msgstr "https://www.ioblog.me"

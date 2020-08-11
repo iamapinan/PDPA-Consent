@@ -1,0 +1,64 @@
+/**
+* User privacy page style
+*/
+.pdpa_user_warp {
+    display: flex;
+    flex-direction: column;
+}
+.pdpa_user_warp .user_toolbar {
+    justify-content: flex-start;
+    flex-direction: row;
+    display: flex;
+    margin-bottom: 20px;
+}
+.pdpa_user_warp button {
+    padding: 10px 25px;
+    border-radius: 30px;
+    line-height: 14px;
+    font-size: 16px;
+    margin: 3px;
+}
+.pdpa_user_warp .profile-header-top {
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: row;
+    background: rgb(170,34,195);
+    background: linear-gradient(0deg, rgba(170,34,195,1) 0%, rgba(253,45,121,1) 100%);
+    padding: 20px 10px;
+    margin-bottom: 25px;
+    margin-top: 25px;
+    border-radius: 8px;
+}
+
+.pdpa_user_warp .profile-header-top img {
+    border-radius: 50%;
+    width: 96px;
+    height: 96px;
+    margin-left: 20px;
+}
+
+.pdpa_user_warp .profile-header-top .user_title {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding-left: 25px;
+}
+.profile-header-top .user_title h3 {
+    margin-bottom: 10px;
+    margin-top: 0px;
+    color: #fff;
+}
+.profile-header-top .user_title p {
+    color: rgb(255, 236, 221);
+    font-size: 0.8em;
+}
+.profile-header-top .user_title span {
+    vertical-align: middle;
+}
+.profile-header-top .user_title .status_bage {
+    color: #fff;
+}
+.pdpa_user_warp .user_data td, .pdpa_user_warp .user_data th {
+    border: 1px solid #ccc;
+    padding: 5px;
+}
